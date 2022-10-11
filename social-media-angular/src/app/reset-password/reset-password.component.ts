@@ -20,11 +20,7 @@ export class ResetPasswordComponent implements OnInit {
     password: new FormControl('', Validators.required),
     passwordConf: new FormControl('', Validators.required)
 
-  },
-  // {
-  //   validators:this.mustMatch('password', 'passwordConf');
-  // }
-  )
+  })
 
   constructor(private resetService: ResetPasswordService, private router: Router) { }
 
