@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit{
   ngOnInit(): void {
 
     var initMode = localStorage.getItem('colorMode');
+    if (initMode == null) {localStorage.setItem('colorMode', 'light-mode')};
     switch(initMode) {
       case 'light-mode': 
         document.body.classList.remove('dusk-mode');
