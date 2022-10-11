@@ -55,28 +55,7 @@ describe('NavbarComponent', () => {
   
   });
 
-  describe('testing Dark Mode switch assignment in button symbol', () => {
-    it('#darkMode() should switch through #light_mode, #wb_twilight, #bedtime', () => {    
-      const fixture = TestBed.createComponent(NavbarComponent)
-      component = fixture.componentInstance;  
-      expect(component.colorSymbol)
-        .withContext('light_mode onInit')
-        .toBe('light_mode');
-      component.darkMode();
-      expect(component.colorSymbol)
-        .withContext('wb_twilight at first click')
-        .toBe('wb_twilight');
-      component.darkMode();
-      expect(component.colorSymbol)
-        .withContext('bedtime at second click')
-        .toBe('bedtime');
-      component.darkMode();
-      expect(component.colorSymbol)
-        .withContext('light_mode at third click')
-        .toBe('light_mode');
-    });
 
-});
 
 describe('testing Dark Mode switch add/remove selectors', () => {
   it('#darkMode() should switch #add(dusk-mode), #replace(dusk-mode, dark-mode), #remove(dark-mode)' , () => {    
@@ -97,7 +76,5 @@ describe('testing Dark Mode switch add/remove selectors', () => {
   });
 
 });
-
-
 
 });

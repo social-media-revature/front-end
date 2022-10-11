@@ -10,14 +10,29 @@ import { MainComponent } from 'src/main';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit{
-  
-  colorSymbol = 'light_mode';
-
+     
   constructor(private authService: AuthService, private router: Router) { }
   
   ngOnInit(): void {
-    localStorage.setItem('colorMode', 'light-mode');
+
+    var initMode = localStorage.getItem('colorMode');
+    switch(initMode) {
+      case 'light-mode': 
+        document.body.classList.remove('dusk-mode');
+        document.body.classList.remove('dark-mode');
+        break;
+      case 'dusk-mode':
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('dusk-mode');
+        break;
+      case 'dark-mode':
+        document.body.classList.remove('dusk-mode');
+        document.body.classList.add('dark-mode');
+        break;
+      default:
+        break;
   }
+}
 
   ngOnDestroy() {
   }
@@ -33,17 +48,14 @@ export class NavbarComponent implements OnInit{
       case 'light-mode': 
         document.body.classList.add('dusk-mode');
         localStorage.setItem('colorMode','dusk-mode');
-        this.colorSymbol = 'wb_twilight';
         break;
       case 'dusk-mode':
         document.body.classList.replace('dusk-mode', 'dark-mode');        
         localStorage.setItem('colorMode', 'dark-mode');
-        this.colorSymbol = 'bedtime';
         break;
       case 'dark-mode':
         document.body.classList.remove('dark-mode');
         localStorage.setItem('colorMode', 'light-mode');
-        this.colorSymbol = 'light_mode';
         break;
       default:
         break;
