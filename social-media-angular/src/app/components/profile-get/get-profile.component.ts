@@ -4,7 +4,7 @@ import { Profile } from 'src/app/models/Profile';
 import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 import UserWithPassword from 'src/app/models/UserWithPassword';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'get-profile',
   templateUrl: './get-profile.component.html',
@@ -17,7 +17,7 @@ export class GetProfileComponent implements OnInit {
   profile: Profile = {
     id: 0,
     text: "",
-    image_url: "",
+    imageUrl: "",
     user: {
       id: 0,
       email: "",
@@ -27,7 +27,8 @@ export class GetProfileComponent implements OnInit {
 
   }
 
-  constructor(private profileService: ProfileService, private authService: AuthService) { }
+  constructor(private profileService: ProfileService, private authService: AuthService,
+    private router : Router) { }
 
   ngOnInit(): void {
     this.initializeProfile();
@@ -73,4 +74,9 @@ export class GetProfileComponent implements OnInit {
       })
     })
   }
+
+  goToEditProfile(){
+    this.router.navigate([`profile-edit/${this.authService.currentUser.id}`]);
+  }
+
 }

@@ -1,0 +1,45 @@
+<div class="cardContainer" align="center">
+    <form #myForm="ngForm" (ngSubmit)="updateProfile()">
+        <mat-card>
+            <mat-card-title>Edit Profile!</mat-card-title>
+
+
+            <mat-card-content>
+
+                <div class="form-group">
+                    <label for="">Image URL</label>
+                    <input type="text" class="form-control" id="image_url" placeholder="Enter Image URL"
+                        name="image_url" [(ngModel)]="profile.imageUrl"
+                        #pImg = "ngModel"
+                        >
+                      
+
+                </div>
+
+                <div class="form-group">
+                    <label for="">About Me</label>
+                    <input type="text" class="form-control" id="aboutMeText" placeholder="Write about yourself"
+                        name="aboutMeText" [(ngModel)]="profile.text"
+                        #pText = "ngModel"
+                        >
+                      
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </mat-card-content>
+            <mat-card-actions>
+                <button type="submit" mat-raised-button color="primary">Sumbit!</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { GetProfileComponent } from './components/profile-get/get-profile.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { GetProfileComponent } from './components/profile-get/get-profile.compon
     NavbarComponent,
     UserInitialsPipe,
     GetProfileComponent,
+    ProfileEditComponent,
    
   ],
   imports: [
@@ -39,6 +41,7 @@ import { GetProfileComponent } from './components/profile-get/get-profile.compon
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
