@@ -1,3 +1,4 @@
+<div *ngIf="getCanShowProfile()">
 <mat-grid-list cols="10">
     <mat-grid-tile colspan="3" rowspan="3">   
     <img [src]="profile.imageUrl" alt="Image Here!">  
@@ -6,7 +7,16 @@
     <mat-grid-tile colspan="3" class="mat-display-3">{{profile.user.firstName}} {{profile.user.lastName}}</mat-grid-tile>
 </mat-grid-list>
 
-<div>
+<div *ngIf="isCurrentUser()">
     <button mat-raised-button color="primary" class="editBtn" (click)="goToEditProfile()">Edit Profile!</button>
 </div>
+</div>
 
+<div *ngIf="!getCanShowProfile()">
+
+<h1>Profile Not Created!</h1>
+
+<p>
+    Sorry, this user doesn't have a profile yet. Contact the user about making a profile, be a friend!
+</p>
+</div>

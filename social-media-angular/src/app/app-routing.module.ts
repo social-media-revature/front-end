@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "post-feed", component: PostFeedPageComponent},
-  { path: "get-profile", component: GetProfileComponent},
+  { path: "get-profile/:pid", component: GetProfileComponent},
   { path: "profile-edit/:pid", component: ProfileEditComponent}
 ];
 

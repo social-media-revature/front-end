@@ -54,7 +54,7 @@ export class ProfileEditComponent implements OnInit {
     this.profileService.updateProfile(this.profile).subscribe((Response)=>{
       this.profile = Response;
       console.log(Response);
-      this.router.navigate(['get-profile']);
+      this.router.navigate([`get-profile/${this.profile.user.id}`]);
     })
   }
 }
