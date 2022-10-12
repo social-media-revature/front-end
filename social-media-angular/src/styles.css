@@ -100,7 +100,7 @@ body {
 }
 
 .reset-password-link {
-    float: left;
+    float: right;
     padding-top: .5em;
 }
 
@@ -249,6 +249,10 @@ body.dusk-mode .register-text {
   color: black;
 }
 
+body.dusk-mode .reset-text {
+  color: black;
+}
+
 .mat-raised-button.mat-dusk {
   border-radius: 50px;
   background-color: #673AB7;
@@ -336,6 +340,10 @@ body.dark-mode .login-text {
 }
 
 body.dark-mode .register-text {
+  color: black;
+}
+
+body.dark-mode .reset-text {
   color: black;
 }
 
