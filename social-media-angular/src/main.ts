@@ -10,3 +10,12 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+export class MainComponent {
+
+  darkMode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    console.log('working');
+  }
+}

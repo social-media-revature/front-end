@@ -1,5 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-
+/* You can add global styles to this file, and also import other style files  */ 
 html,
 body {
   height: 100%;
@@ -72,6 +71,7 @@ body {
 .login-wrapper .btn-block {
   width: 100%;
 }
+
 .login-wrapper mat-card-header {
   text-align: center;
   width: 100%;
@@ -169,4 +169,186 @@ body {
 
 .spacer {
   flex: 1 1 auto;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Dusk Mode */
+
+/* ===========================================
+===========================================
+=========================================== */
+
+body.dusk-mode {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  background: #333;
+  
+}
+
+body.dusk-mode .box {
+  background: #ffdab9;
+}
+
+body.dusk-mode .box.back {
+  transform: scale(.95);
+  -webkit-transform: scale(.95);
+  -ms-transform: scale(.95);
+  top: -20px;
+  opacity: .8;
+  z-index: -1;
+}
+body.dusk-mode .box:before {
+
+  background: rgba(255, 218, 185, .6);
+
+}
+
+body.dusk-mode mat-toolbar {
+  background-color: #7e3b00;
+
+}
+
+body.dusk-mode mat-form-field {
+  border-radius: 6px;
+  background-color: rgb(255, 215, 185, .3);
+  color: black;
+}
+
+body.dusk-mode mat-label {
+  color: #e2e2e2;
+}
+
+body.dusk-mode .mat-raised-button.mat-cancel {
+  border-radius: 6px;
+  background-color: rgb(255, 60, 60, 0.9);
+  color: white;
+}
+
+.mat-raised-button.mat-logout {
+  border-radius: 50px;
+  background-color: #673AB7;
+  color: white;
+}
+
+body.dusk-mode mat-card-title {
+  color: #e2e2e2;
+}
+
+body.dusk-mode .login-text {
+  color: black;
+}
+
+body.dusk-mode .register-text {
+  color: black;
+}
+
+.mat-raised-button.mat-dusk {
+  border-radius: 50px;
+  background-color: #673AB7;
+  color: white;
+}
+
+body.dusk-mode .mat-raised-button.mat-primary {
+  border-radius: 6px;
+}
+
+body.dusk-mode mat-card {
+  background-color: rgb(255, 215, 185, .3);
+  color: #e2e2e2;
+}
+
+body.dusk-mode mat-card-subtitle {
+  color: #e2e2e2
+}
+
+/* Dark Mode */
+
+/* ===========================================
+===========================================
+=========================================== */
+
+body.dark-mode {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  background: #111;
+  
+}
+
+body.dark-mode .box {
+  background: #aaaaaa;
+}
+
+body.dark-mode .box.back {
+  transform: scale(.95);
+  -webkit-transform: scale(.95);
+  -ms-transform: scale(.95);
+  top: -20px;
+  opacity: .8;
+  z-index: -1;
+}
+body.dark-mode .box:before {
+
+  background: rgba(170, 170, 170, .6);
+
+}
+
+body.dark-mode mat-toolbar {
+  background-color: #572900;
+
+}
+
+body.dark-mode mat-form-field {
+  border-radius: 6px;
+  background-color: rgb(170, 170, 170, .3);
+  color: black;
+}
+
+body.dark-mode mat-label {
+  color: #e2e2e2;
+}
+
+body.dark-mode .mat-raised-button.mat-cancel {
+  border-radius: 6px;
+  background-color: rgb(255, 60, 60, 0.9);
+  color: white;
+}
+
+.mat-raised-button.mat-logout {
+  border-radius: 50px;
+  background-color: #673AB7;
+  color: white;
+}
+
+body.dark-mode mat-card-title {
+  color: #e2e2e2;
+}
+
+body.dark-mode .login-text {
+  color: black;
+}
+
+body.dark-mode .register-text {
+  color: black;
+}
+
+.mat-raised-button.mat-dark {
+  border-radius: 50px;
+  background-color: #673AB7;
+  color: white;
+}
+
+body.dark-mode .mat-raised-button.mat-primary {
+  border-radius: 6px;
+}
+
+body.dark-mode mat-card {
+  background-color: rgb(170, 170, 170, .3);
+  color: #e2e2e2;
+}
+
+body.dark-mode mat-card-subtitle {
+  color: #e2e2e2
 }
