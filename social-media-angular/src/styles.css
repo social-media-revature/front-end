@@ -99,6 +99,11 @@ body {
     padding-top: .5em;
 }
 
+.reset-password-link {
+    float: left;
+    padding-top: .5em;
+}
+
 .login-wrapper {
     display: flex;
     justify-content: center;
