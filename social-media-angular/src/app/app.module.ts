@@ -17,6 +17,7 @@ import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
