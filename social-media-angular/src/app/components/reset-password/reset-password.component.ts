@@ -54,6 +54,8 @@ export class ResetPasswordComponent implements OnInit {
     if(this.changePasswordForm.value.email == "") {
 
     } else if(this.changePasswordForm.value.email?.indexOf(' ')! >= 0) {
+
+      this.errorMessage = "Email cannot contain spaces";
       
     } else {
 
