@@ -35,8 +35,8 @@ export class RegisterComponent implements OnInit {
 
     } else if(this.registerForm.value.firstName?.startsWith(" ") || this.registerForm.value.lastName?.startsWith(" ")) {
       this.errorMessage = "Names cannot begin with a space";
-    }
-    
+
+    }     
     else {
 
     e.preventDefault()
