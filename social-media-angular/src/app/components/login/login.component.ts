@@ -10,6 +10,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  errorMessage: string = '';
+
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
@@ -22,6 +24,14 @@ export class LoginComponent implements OnInit {
   }
   
   onSubmit(e: any): void {
+
+    if(this.loginForm.value.email == "" || this.loginForm.value.password == "") {
+      this.errorMessage = "Email or Password is incorrect";
+    } else if(this.loginForm.value.email?.indexOf(' ')! >= 0 || this.loginForm.value.password?.indexOf(' ')! >= 0) {
+      this.errorMessage = "Email or Password is incorrect";
+    }
+    
+    else {
     e.preventDefault()
     this.authService.login(this.loginForm.value.email || "", this.loginForm.value.password || "")
       .subscribe(
@@ -31,6 +41,7 @@ export class LoginComponent implements OnInit {
         }
       )
   }
+}
 
   register(): void {
     this.router.navigate(['register']);

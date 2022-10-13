@@ -12,6 +12,8 @@ export class ResetPasswordComponent implements OnInit {
 
   verifed:boolean = false;
   changeComplete: boolean = false;
+  errorMessage: string = '';
+
   
 
   changePasswordForm = new FormGroup ({
@@ -29,27 +31,41 @@ export class ResetPasswordComponent implements OnInit {
 
   formSubmitted(){
 
+    if(this.changePasswordForm.value.password == "") {
+
+    } else if(this.changePasswordForm.value.password?.indexOf(' ')! >= 0) {
+
+      this.errorMessage = "Password cannot contain spaces";
+
+    } else {
+
+    this.errorMessage = "";
     this.resetService.changePassword(this.changePasswordForm.value.password || "").subscribe((response) =>
      {
-      console.log(response);
       this.changeComplete=true;
 
      });
+    }
 
   }
 
   verifyEmail(){
 
+    if(this.changePasswordForm.value.email == "") {
+
+    } else if(this.changePasswordForm.value.email?.indexOf(' ')! >= 0) {
+      
+    } else {
+
     this.resetService.checkEmail(this.changePasswordForm.value.email || "").subscribe((response) => 
     {
-      console.log(response);
       this.resetService.user = response;
       this.verifed = true;
 
     })
-
-    
-
   }
+   
+  }
+
 
 }
