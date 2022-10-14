@@ -11,10 +11,11 @@ export class ObscenityPipe implements PipeTransform {
 
   transform(value: any, ...args: any[]): any {
     var newVal: string = value;
-    var grawlix: string = '@#$%&!';
+    var grawlix: string = '';
 
     this.obscenities.array.forEach((curse: any) => {
       newVal = newVal.replaceAll(curse, grawlix);
+
     });
 
     return newVal;
