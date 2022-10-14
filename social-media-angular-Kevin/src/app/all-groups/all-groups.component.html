@@ -1,0 +1,105 @@
+<header>Current Groups</header>
+
+<body>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2">
+            <button type="button" class="btn btn-success" (click)="toggleGroupForm()">Create New Group</button>
+            <div *ngIf="showCreateGroupForm">
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <form #myForm="ngForm" (ngSubmit)="createGroup()">
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                    <div class="mb-3 mt-3">
+                                        <label for="bTitle" class="form-label">Group Name:</label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="groupName" 
+                                            placeholder="Enter group name"
+                                            name="groupName"
+                                            [(ngModel)]="newGroup.groupName"
+                                            #groupName="ngModel"
+                                            required>
+                                        <div class="text-danger small" *ngIf="!groupName.valid && groupName.touched">
+                                            Group Name is required. Please enter the desired name of your group.
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="groupDescription" class="form-label">Group Description:</label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="groupDescription"
+                                            placeholder="Enter a group description" 
+                                            name="groupDescription"
+                                            [(ngModel)]="newGroup.groupDescription"
+                                            #groupDescription="ngModel"
+                                            required>
+                                    </div>
+                    
+                                    <!-- <div class="mb-3 mt-3">
+                                        <label for="bImage" class="form-label">Book Image URL:</label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control" 
+                                            id="bImage" 
+                                            placeholder="Enter image url"
+                                            name="bookImage"
+                                            [(ngModel)]="newBook.bookImageUrl"
+                                            #bImage="ngModel"
+                                            required>
+                                        <div class="text-danger small" *ngIf="!bImage.valid && bImage.touched">
+                                            Book Image URL is required!
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="card-footer bg-success">
+                                    <button 
+                                        type="submit" 
+                                        class="btn btn-warning"
+                                        
+                                        [disabled]="!myForm.valid"
+                                        >Create Group</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+
+            </div><br><br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>IMAGE</th>
+                        <th>GROUP NAME</th>
+                        <th>DESCRIPTION</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let eachGroup of groups">
+                        <td></td>
+                        <!-- <td><img [src]="eachGroup.image" height="60px" width="100px"></td> -->
+                        <td>{{ eachGroup.groupName }}</td>
+                        <td>{{ eachGroup.groupDescription }}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary"
+                                    (click)="viewGroup(eachGroup)">
+                                <span class="material-symbols-outlined">View Group</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+</div>
+
+</body>
