@@ -17,7 +17,6 @@ import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { GetProfileComponent } from './components/profile-get/get-profile.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({

@@ -74,12 +74,12 @@ export class GetProfileComponent implements OnInit {
   createProfile(): void {
     this.profile.user = this.authService.currentUser;
     this.profileService.createProfile(this.profile).subscribe((Response) => {
-      console.log(Response);
       this.profile = Response;
     })
   }
 
   goToEditProfile(){
+    console.log("called! from edit");
     this.router.navigate([`profile-edit/${this.authService.currentUser.id}`]);
   }
 
