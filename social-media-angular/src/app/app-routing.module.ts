@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GetProfileComponent } from './components/profile-get/get-profile.component';
+import { BookmarkComponent } from './components/bookmark/bookmark.component';
 import { LoginComponent } from './components/login/login.component';
 import { PostFeedPageComponent } from './components/post-feed-page/post-feed-page.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
@@ -14,9 +12,8 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "post-feed", component: PostFeedPageComponent},
-  { path: "get-profile/:pid", component: GetProfileComponent},
-  { path: "profile-edit/:pid", component: ProfileEditComponent},
-  { path: "reset-password", component: ResetPasswordComponent}
+  { path: "reset-password", component: ResetPasswordComponent},
+  { path: "bookmark", component: BookmarkComponent}
 ];
 
 @NgModule({

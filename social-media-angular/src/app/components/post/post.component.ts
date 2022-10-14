@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import Post from 'src/app/models/Post';
 import { AuthService } from 'src/app/services/auth.service';
+import { BookmarkService } from 'src/app/services/bookmark.service';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -18,7 +19,9 @@ export class PostComponent implements OnInit {
   @Input('post') post: Post
   replyToPost: boolean = false
 
-  constructor(private postService: PostService, private authService: AuthService) { }
+  bookmarked = false;
+
+  constructor(private postService: PostService, private authService: AuthService, private bookmarkService: BookmarkService) { }
 
   ngOnInit(): void {
   }
@@ -37,5 +40,25 @@ export class PostComponent implements OnInit {
           this.toggleReplyToPost()
         }
       )
+  }
+
+  bookmarkThisPost(post:Post):void{
+
+    this.bookmarked = true;
+
+    this.bookmarkService.bookmarkThis(post,this.authService.currentUser).subscribe((response) => {});
+
+  }
+
+  unBookmarkThisPost(post:Post):void{
+
+    this.bookmarked = false;
+
+    this.bookmarkService.unBookmarkThis(post, this.authService.currentUser).subscribe((response) =>{
+
+      
+
+    });
+
   }
 }

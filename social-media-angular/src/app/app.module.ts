@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,10 +15,9 @@ import { CommentComponent } from './components/comment/comment.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { GetProfileComponent } from './components/profile-get/get-profile.component';
-import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { BookmarkComponent } from './components/bookmark/bookmark.component';
+
 
 @NgModule({
   declarations: [
@@ -31,9 +30,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     UserCardComponent,
     NavbarComponent,
     UserInitialsPipe,
-    GetProfileComponent,
-    ProfileEditComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    BookmarkComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +40,6 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
