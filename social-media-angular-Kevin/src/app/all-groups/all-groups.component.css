@@ -1,0 +1,17 @@
+header{
+    text-align: center;
+    font-size: 28pt;
+    margin: 0;
+    padding-top: 25px;
+    padding-bottom:50px;
+    background-color: rgb(242,105,37);
+}
+
+body{
+    margin-left: 150px;
+    margin-top: 0;
+    line-height: 20pt;
+}
+
+
+
