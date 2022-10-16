@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Injectable, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
   templateUrl: './group.component.html',
   styleUrls: ['./group.component.css']
 })
+
 
 export class GroupComponent implements OnInit {
 

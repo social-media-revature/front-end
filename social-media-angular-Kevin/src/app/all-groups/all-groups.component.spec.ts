@@ -41,6 +41,7 @@ fdescribe('AllGroupsComponent', () => {
       adminID: 20,
       groupName: "The Flying Oysters",
       groupDescription: "asl;kfjs",
+      groupImageUrl: "",
       groupMembers: [fakeUser]
   };
 
