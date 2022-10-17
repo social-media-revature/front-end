@@ -10,6 +10,7 @@ import Post from '../models/Post';
 export class PostService {
 
   postUrl: string = `${environment.baseUrl}/post`
+  groupsUrl: String = `${environment.baseUrl}/groups`
 
   constructor(private http: HttpClient) { }
 

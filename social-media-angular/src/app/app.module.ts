@@ -20,6 +20,10 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { PipesModule } from './modules/pipes.module';
 import { ObscenityPipe } from './pipes/obscenity.pipe';
+import { GroupService } from './services/group.service';
+import { GroupComponent } from './components/group/group.component';
+import { AllGroupsComponent } from './components/all-groups/all-groups.component';
+import { EditGroupComponent } from './components/edit-group/edit-group.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,9 @@ import { ObscenityPipe } from './pipes/obscenity.pipe';
     GetProfileComponent,
     ProfileEditComponent,
     ResetPasswordComponent,
+    GroupComponent,
+    AllGroupsComponent,
+    EditGroupComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,7 @@ import { ObscenityPipe } from './pipes/obscenity.pipe';
     FormsModule,
     PipesModule
   ],
-  providers: [ ObscenityPipe],
+  providers: [ ObscenityPipe, GroupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
