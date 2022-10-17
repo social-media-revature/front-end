@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { FileStorageService } from './file-storage.service';
 import FileInfo from '../models/FileInfo';
 
-fdescribe('FileStorageService', () => {
+describe('FileStorageService', () => {
   let service: FileStorageService;
   let httpMock : HttpTestingController;
   let fileInfo : FileInfo;
