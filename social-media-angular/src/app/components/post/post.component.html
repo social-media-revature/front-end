@@ -8,7 +8,7 @@
         <img mat-card-image *ngIf="post.imageUrl" src="{{ post.imageUrl }}" alt="Post Image">
         <mat-card-content>
             <p>
-                {{post.text}}
+                {{post.text | obscenity}}
             </p>
             <div *ngFor="let comment of post.comments" class="comment-container">
                 <mat-divider></mat-divider>

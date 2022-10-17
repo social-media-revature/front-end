@@ -1,24 +1,26 @@
+<!-- <app-navbar></app-navbar> -->
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
     <mat-card-header>
-      <mat-card-title>Register</mat-card-title>
+      <mat-card-title class="register-text">Register</mat-card-title>
     </mat-card-header>
     <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit($event)">
       <mat-card-content>
+        <div *ngIf="errorMessage" class="text-danger small">{{ errorMessage }}</div>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Email" formControlName="email">
+          <input matInput placeholder="Email" formControlName="email" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Password" type="password" formControlName="password">
+          <input matInput placeholder="Password" type="password" formControlName="password" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="First Name" formControlName="firstName">
+          <input matInput placeholder="First Name" formControlName="firstName" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Last Name" formControlName="lastName">
+          <input matInput placeholder="Last Name" formControlName="lastName" required>
         </mat-form-field>
       </mat-card-content>
-      <button mat-stroked-button color="accent" class="btn-block" type="submit">Register</button>
+      <button mat-raised-button color="primary" class="btn-block" type="submit">Register</button>
     </form>
     <a class="login-rerout-link" [routerLink]="['/login']">Already have an account?</a>
   </mat-card>

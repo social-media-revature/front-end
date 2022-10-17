@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,11 @@ import { CommentComponent } from './components/comment/comment.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { GetProfileComponent } from './components/profile-get/get-profile.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { PipesModule } from './modules/pipes.module';
+import { ObscenityPipe } from './pipes/obscenity.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     UserCardComponent,
     NavbarComponent,
     UserInitialsPipe,
+    GetProfileComponent,
+    ProfileEditComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,8 +43,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    FormsModule,
+    PipesModule
   ],
-  providers: [],
+  providers: [ ObscenityPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

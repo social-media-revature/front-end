@@ -1,22 +1,23 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { PostFeedPageComponent } from './post-feed-page.component';
+import { ProfileEditComponent } from './profile-edit.component';
 
-describe('PostFeedPageComponent', () => {
-  let component: PostFeedPageComponent;
-  let fixture: ComponentFixture<PostFeedPageComponent>;
+describe('ProfileEditComponent', () => {
+  let component: ProfileEditComponent;
+  let fixture: ComponentFixture<ProfileEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      providers: [HttpClient, HttpHandler],
-      declarations: [ PostFeedPageComponent ]
+      imports: [ RouterTestingModule, FormsModule ],
+      providers: [ HttpClient, HttpHandler ],
+      declarations: [ ProfileEditComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PostFeedPageComponent);
+    fixture = TestBed.createComponent(ProfileEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
