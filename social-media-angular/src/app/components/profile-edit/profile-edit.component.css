@@ -6,3 +6,13 @@ div{
     margin: 5px;
 }
 
+#imgRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.noMargin{
+    margin: 5px;
+    
+}

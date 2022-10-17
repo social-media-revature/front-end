@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileStorageService } from 'src/app/services/file-storage.service';
 import { environment } from 'src/environments/environment';
+import FileInfo from 'src/app/models/FileInfo';
 @Component({
   selector: 'app-profile-edit',
   templateUrl: './profile-edit.component.html',
@@ -18,6 +19,13 @@ export class ProfileEditComponent implements OnInit {
   baseurl : string = environment.baseUrl;
 
   val : any;
+
+  private showOtherImage: boolean = false;
+
+  tempFileInfo : FileInfo = {
+    name: "",
+    url: ""
+  };
 
   selectedFile : any;
   file : File;
@@ -53,10 +61,17 @@ export class ProfileEditComponent implements OnInit {
       lastName: ""
     }
 
+   
+
     this.profileService.getOneProfile(user).subscribe((Response)=>{
       this.profile = Response;
     })
   }
+
+  getShowOtherImage() : boolean{
+    return this.showOtherImage;
+  }
+
 
   public updateProfile(): void{
     this.profileService.updateProfile(this.profile).subscribe((Response)=>{
@@ -93,7 +108,12 @@ export class ProfileEditComponent implements OnInit {
     this.selectedFile = (<HTMLInputElement>event.target).files;
     this.file = this.selectedFile[0];
     //console.log(this.selectedFile);
-    console.log(this.file);
+    
+    this.fileStorageService.uploadFile(this.file).subscribe((Response)=>{
+      this.tempFileInfo.url = this.baseurl +"/files/" + Response.url;
+      this.tempFileInfo.name = Response.name;
+      this.showOtherImage = true;
+    })
   }
 
   public onUpload() : void{
@@ -102,8 +122,13 @@ export class ProfileEditComponent implements OnInit {
       this.profile.imageUrl = this.baseurl +"/files/" + Response.url;
       this.profileService.updateProfile(this.profile).subscribe((Response)=>{
         console.log(Response);
+        this.showOtherImage = false;
       });
     });
+    
+  }
+
+  public ToggleShowEmail() : void{
     
   }
 

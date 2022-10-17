@@ -40,13 +40,19 @@
 
 
             <mat-card-content>
-
-                <div>
+                <div id="imgRow">
+                <div class="noMargin">
                     <img [src]="profile.imageUrl" alt="Profile Image" width="250px" height="250px">
+                    <div class="mat-display-2 noMargin">Before</div>
                 </div>
 
+                <div class="noMargin" *ngIf="getShowOtherImage()">
+                    <img [src]="tempFileInfo.url" alt="Profile Image" width="250px" height="250px">
+                    <div class="mat-display-2 noMargin">After</div>
+                </div>
+                </div>
                 <div>
-                    <label for="imageUpload">Choose a file!</label>
+                    <label for="imageUpload">Choose a file! </label>
                     <input type="file" id="imageUpload" (change)="onFileSelected($event)">
                 </div>
 
@@ -58,6 +64,20 @@
         </mat-card>
     
 </div>  
+
+<div class="cardContainer" align="center">
+   
+    <mat-card>
+        <mat-card-title>Display Email?</mat-card-title>
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+            <button type="submit" mat-raised-button color="primary" (click)="goToProfile()">Change!</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>  
+
 
 <div class="cardContainer" align="center">
    
