@@ -66,12 +66,6 @@ export class ProfileEditComponent implements OnInit {
     })
   }
 
-  public testUpload() : void{
-    this.fileStorageService.getTest().subscribe((Response)=>{
-      console.log(Response);
-    });
-  }
-
   public updateProfileImage(): void{
     this.val = document.getElementById("image_url");
     //let testdata : FormData = new FormData();
@@ -109,9 +103,9 @@ export class ProfileEditComponent implements OnInit {
     
   }
 
-  public getFile() : void{
+  /*public getFile() : void{
     this.fileStorageService.getFile(this.file.name).subscribe((Response)=>{
       console.log(Response);
     });
-  }
+  }*/
 }

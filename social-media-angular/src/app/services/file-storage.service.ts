@@ -17,21 +17,11 @@ export class FileStorageService {
     const fd = new FormData();
     fd.append("file",file);
     console.log(fd.getAll("file"));
-
-    
     
     return this.httpClient.post<FileInfo>(this.baseUrl + "/upload",fd);
   }
 
-  getFile(fileName : string) : Observable<any>{
+  /*getFile(fileName : string) : Observable<any>{
     return this.httpClient.get<any>(this.baseUrl + "/files/" + fileName);
-  }
-
-  getTest() : Observable<any>{
-    return this.httpClient.get<any>(this.baseUrl + "/files/test");
-  }
-
-  getTestMore(bla : string) : Observable<any>{
-    return this.httpClient.post<any>(this.baseUrl + "/upload/test/bla", "bla");
-  }
+  }*/
 }
