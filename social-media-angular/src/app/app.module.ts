@@ -17,8 +17,9 @@ import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { GetProfileComponent } from './components/profile-get/get-profile.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { PipesModule } from './modules/pipes.module';
+import { ObscenityPipe } from './pipes/obscenity.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     UserInitialsPipe,
     GetProfileComponent,
     ProfileEditComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +43,10 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    FormsModule
+    FormsModule,
+    PipesModule
   ],
-  providers: [],
+  providers: [ ObscenityPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
