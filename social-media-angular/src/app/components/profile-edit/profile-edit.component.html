@@ -1,4 +1,4 @@
-  <div class="cardContainer" align="center">
+  <div class="cardContainer alignOnTop" align="center">
     <form #myForm="ngForm" (ngSubmit)="updateProfile()">
         <mat-card>
             <mat-card-title>Edit Profile!</mat-card-title>
@@ -6,7 +6,7 @@
 
             <mat-card-content>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="">Image URL</label>
                     <input type="text" class="form-control" id="image_url" placeholder="Enter Image URL"
                         name="image_url" [(ngModel)]="profile.imageUrl"
@@ -14,7 +14,7 @@
                         >
                       
 
-                </div>
+                </div> -->
 
                 <div class="form-group">
                     <label for="">About Me</label>
@@ -31,9 +31,46 @@
             </mat-card-actions>
         </mat-card>
     </form>
-</div>  -->
+</div>  
+
+<div class="cardContainer" align="center">
+   
+        <mat-card>
+            <mat-card-title>Edit Avatar!</mat-card-title>
 
 
+            <mat-card-content>
+
+                <div>
+                    <img [src]="profile.imageUrl" alt="Profile Image" width="250px" height="250px">
+                </div>
+
+                <div>
+                    <label for="imageUpload">Choose a file!</label>
+                    <input type="file" id="imageUpload" (change)="onFileSelected($event)">
+                </div>
+
+                
+            </mat-card-content>
+            <mat-card-actions>
+                <button type="submit" mat-raised-button color="primary" (click)="onUpload()">Upload!</button>
+            </mat-card-actions>
+        </mat-card>
+    
+</div>  
+
+<div class="cardContainer" align="center">
+   
+    <mat-card>
+        <mat-card-title>Happy with changes?</mat-card-title>
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+            <button type="submit" mat-raised-button color="primary" (click)="goToProfile()">To profile</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>  
 
 
 <!-- <div class="cardContainer" align="center">
@@ -61,6 +98,6 @@
     </form>
 </div>  -->
 
-<h1>file upload</h1>
+<!-- <h1>file upload</h1>
 <input type="file" (change)="onFileSelected($event)">
-<button type="button" (click)="onUpload()">UPLOAD</button>
+<button type="button" (click)="onUpload()">UPLOAD</button> -->

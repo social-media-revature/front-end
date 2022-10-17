@@ -66,6 +66,10 @@ export class ProfileEditComponent implements OnInit {
     })
   }
 
+  goToProfile(): void{
+    this.router.navigate([`get-profile/${this.profile.user.id}`]);
+  }
+
   public updateProfileImage(): void{
     this.val = document.getElementById("image_url");
     //let testdata : FormData = new FormData();

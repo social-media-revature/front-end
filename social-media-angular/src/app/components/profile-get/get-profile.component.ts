@@ -15,6 +15,8 @@ export class GetProfileComponent implements OnInit {
 
   private canShowProfile : boolean = true;
 
+  private canShowEmail : boolean = true;
+
   profiles: Profile[] = []
 
   profile: Profile = {
@@ -37,6 +39,9 @@ export class GetProfileComponent implements OnInit {
       return this.canShowProfile;
     }
 
+    public getCanShowEmail() : boolean{
+      return this.canShowEmail;
+    }
 
   ngOnInit(): void {
     this.initializeProfile();
