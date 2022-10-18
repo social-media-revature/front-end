@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,8 +23,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { PipesModule } from './modules/pipes.module';
 import { ObscenityPipe } from './pipes/obscenity.pipe';
 import { GroupService } from './services/group.service';
-import { GroupComponent } from './group/group.component';
-import { AllGroupsComponent } from './all-groups/all-groups.component';
+import { GroupComponent } from './components/group/group.component';
+import { AllGroupsComponent } from './components/all-groups/all-groups.component';
 import { EditGroupComponent } from './components/edit-group/edit-group.component';
 
 @NgModule({

@@ -3,12 +3,12 @@ import { of } from 'rxjs';
 
 import { AllGroupsComponent } from './all-groups.component';
 
-import { GroupService } from '../services/group.service';
+import { GroupService } from '../../services/group.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Group } from '../models/Group.model';
-import { User } from '../models/User.model';
+import { Group } from '../../models/Group.model';
+import { User } from '../../models/User.model';
 import { Router } from '@angular/router';
 
 

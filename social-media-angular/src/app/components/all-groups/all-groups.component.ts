@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { GroupService } from '../services/group.service';
-import { Group } from '../models/Group.model';
-import { User } from '../models/User.model';
-import { AuthService } from '../services/auth.service';
+import { GroupService } from '../../services/group.service';
+import { Group } from '../../models/Group.model';
+import { User } from '../../models/User.model';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 

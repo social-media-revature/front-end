@@ -36,7 +36,7 @@ export class PostComponent implements OnInit {
   likes: number = 0;
 
   constructor(private postService: PostService, private authService: AuthService, private bookmarkService: BookmarkService,
-              private likeService: LikeService, private router: Router) { }
+              private likeService: LikeService, private router: Router, private profileService : ProfileService) { }
 
   ngOnInit(): void {
 
@@ -59,28 +59,17 @@ export class PostComponent implements OnInit {
           if(bLikedPost.id == this.post.id){
             this.liked = true;
           }
-        //   this.likeService.howManyLikes(this.post, this.authService.currentUser).subscribe((response) => {
-
-        //     this.likes = response;
-
-        //   }
-        // )
         })
         this.likeService.howManyLikes(this.post, this.authService.currentUser).subscribe((response) => {
 
           this.likes = response;
 
         }
-      )
-      ;
-      }
-  
-      
-    )
+      );
+      } )
+  //   }
 
-  constructor(private postService: PostService, private authService: AuthService, private router: Router, private profileService : ProfileService) { }
-
-  ngOnInit(): void {
+  // ngOnInit(): void {
     console.log("author is: " + this.post.author.id);
     this.profileService.getOneProfile(new UserWithPassword(this.post.author.id,"","","","")).subscribe((Response)=>{
       console.log("this is after getone profile, id is: " + Response.user.id);
