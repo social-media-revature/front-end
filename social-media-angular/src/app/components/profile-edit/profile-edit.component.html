@@ -70,9 +70,26 @@
     <mat-card>
         <mat-card-title>Display Email?</mat-card-title>
         <mat-card-content>
+            <div *ngIf="getDisplayEmail()" class="mat-display-3" id="yesblock">YES</div>
+            <div *ngIf="!getDisplayEmail()" class="mat-display-3" id="noblock">NO</div>
         </mat-card-content>
         <mat-card-actions>
-            <button type="submit" mat-raised-button color="primary" (click)="goToProfile()">Change!</button>
+            <button type="submit" mat-raised-button color="primary" (click)="toggleShowEmail()">Change!</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>  
+
+<div class="cardContainer" align="center">
+   
+    <mat-card>
+        <mat-card-title>Show Birthday?</mat-card-title>
+        <mat-card-content>
+            <div *ngIf="getDisplayBirthday()" class="mat-display-3" id="yesblock">YES</div>
+            <div *ngIf="!getDisplayBirthday()" class="mat-display-3" id="noblock">NO</div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button type="submit" mat-raised-button color="primary" (click)="toggleShowEmail()">Change!</button>
         </mat-card-actions>
     </mat-card>
 

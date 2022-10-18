@@ -33,6 +33,10 @@ export class ProfileEditComponent implements OnInit {
     id: 0,
     text: "",
     imageUrl: "",
+    displayEmail: true,
+    birthday: "",
+    displayBirthday: true,
+    displayAge: true,
     user: {
       id: 0,
       email: "",
@@ -68,10 +72,17 @@ export class ProfileEditComponent implements OnInit {
     })
   }
 
+  getDisplayBirthday() : boolean{return this.profile.displayBirthday;}
+
+public getDisplayEmail() : boolean{
+  return this.profile.displayEmail;
+}
+
   getShowOtherImage() : boolean{
     return this.showOtherImage;
   }
 
+  
 
   public updateProfile(): void{
     this.profileService.updateProfile(this.profile).subscribe((Response)=>{
@@ -128,8 +139,11 @@ export class ProfileEditComponent implements OnInit {
     
   }
 
-  public ToggleShowEmail() : void{
-    
+  public toggleShowEmail() : void{
+    this.profile.displayEmail = !this.profile.displayEmail;
+    this.profileService.updateProfile(this.profile).subscribe((Response)=>{
+      this.profile = Response;
+    });
   }
 
   /*public getFile() : void{

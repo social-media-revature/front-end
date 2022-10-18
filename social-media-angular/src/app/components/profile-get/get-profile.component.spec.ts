@@ -56,6 +56,10 @@ describe('GetProfileComponent', () => {
       id: 1,
       text: "profile",
       imageUrl: "profile",
+      displayEmail: true,
+      birthday: "",
+      displayBirthday: true,
+      displayAge: true,
       user: {
         id: 1,
         email: "profile@aol.com",
@@ -68,6 +72,10 @@ describe('GetProfileComponent', () => {
       id: 2,
       text: "otherProfile",
       imageUrl: "otherProfile",
+      displayEmail: true,
+      birthday: "",
+      displayBirthday: true,
+      displayAge: true,
       user: {
         id: 2,
         email: "otherProfile@aol.com",

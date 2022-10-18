@@ -41,6 +41,10 @@ describe('ProfileEditComponent', () => {
       id: 1,
       text: "profile",
       imageUrl: "profile",
+      displayEmail: true,
+      birthday: "",
+      displayBirthday: true,
+      displayAge: true,
       user: {
         id: 1,
         email: "profile@aol.com",
@@ -53,6 +57,10 @@ describe('ProfileEditComponent', () => {
       id: 2,
       text: "otherProfile",
       imageUrl: "otherProfile",
+      displayEmail: true,
+      birthday: "",
+      displayBirthday: true,
+      displayAge: true,
       user: {
         id: 2,
         email: "otherProfile@aol.com",
