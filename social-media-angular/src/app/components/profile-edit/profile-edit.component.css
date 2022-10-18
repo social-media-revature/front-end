@@ -5,3 +5,29 @@ mat-card{
 div{
     margin: 5px;
 }
+
+#imgRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.noMargin{
+    margin: 5px;
+    
+}
+
+#yesblock{
+    width: 2em;
+    color: green;
+}
+
+#noblock{
+    width: 2em;
+    color: red;
+}
+
+#imageError{
+    text-align: center;
+    color: red;
+}

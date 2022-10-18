@@ -72,9 +72,15 @@ export class NavbarComponent implements OnInit{
     
   }
 
+  isLoggedIn() : boolean{
+    return (this.authService.isLoggedIn);
+  }
   go2groups(){
     this.router.navigate(['groups']);
   }
 
 
+  goToProfile() : void{
+    this.router.navigate([`get-profile/${this.authService.currentUser.id}`]);
+  }
 }

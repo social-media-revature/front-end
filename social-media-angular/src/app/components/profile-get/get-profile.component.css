@@ -1,0 +1,45 @@
+
+
+#stopCenterDiv{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#halfWidth{
+    width: 50%;
+    text-align: center;
+    flex-direction: column;
+    
+}
+
+.centerHeader{
+    text-align: center;
+}
+
+#stopWordFlow{
+    word-break: break-all;
+}
+
+.profileContent{
+    margin-bottom: 5px;
+}
+
+#profileImg{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#editButton{
+    margin-top: 5px;
+}
+
+#aboutText{
+    margin-top: 10em;
+}
+
