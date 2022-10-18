@@ -36,14 +36,14 @@ export class GroupComponent implements OnInit {
   memberStatus: boolean;
 
   constructor(private postService: PostService, private groupService: GroupService, private authService: AuthService,
-              private router: Router,
+              private router: Router
               ) { }
 
   ngOnInit(): void {
     this.JSONgroup = sessionStorage.getItem("clickedGroup");
     this.group = JSON.parse(this.JSONgroup);
 
-    if(this.JSONuser != null){
+    if(!this.JSONuser){
       this.JSONuser = sessionStorage.getItem("currentUser");
       this.currentUser = JSON.parse(this.JSONuser);
       this.memberStatus = this.isMember();

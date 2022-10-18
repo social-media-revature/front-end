@@ -7,8 +7,8 @@ header{
     background-color: rgb(242,105,37);
 }
 
-body{
-    margin-left: 150px;
+.body1{
+    margin-left: 400px;
     margin-top: 0;
     line-height: 20pt;
 }
