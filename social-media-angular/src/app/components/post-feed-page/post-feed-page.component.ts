@@ -48,18 +48,7 @@ export class PostFeedPageComponent implements OnInit {
       )
   }
 
-  goToProfile(user: User): void{
-    let userId : any = user.id;
-    sessionStorage.setItem("profileSelectUserID",userId);
-    sessionStorage.setItem("profileSelectFirstName",user.firstName);
-    sessionStorage.setItem("profileSelectLastName",user.lastName);
-    this.router.navigate([`get-profile/${user.id}`]);
-  }
 
-  getUser(): User{
-    return this.authService.currentUser;
-  }
-  
   
 
   

@@ -1,55 +1,55 @@
 <div *ngIf="getCanShowProfile()">
-<mat-grid-list cols="10">
-    <mat-grid-tile colspan="3" rowspan="2">   
-    <img [src]="profile.imageUrl" alt="Image Here!" width="250px" height="250px">  
-    
-    </mat-grid-tile>
-    <mat-grid-tile colspan="6" rowspan="2">
-        <mat-card id="stopCenterDiv">
-            <mat-card-content>
-                <div layout="row" layout-align="center center" id="stopCenterDiv">
-                    <div class="mat-display-3 profileContent">{{profile.user.firstName}} {{profile.user.lastName}}</div>
-                    <div class="mat-display-2 profileContent" *ngIf="getCanShowEmail()">{{profile.user.email}}</div>
-                    <div class="mat-display-2 profileContent" *ngIf="getCanShowBirthday()">Birthday: {{profile.birthday}}</div>       
+    <mat-grid-list cols="10">
+        <mat-grid-tile colspan="2" rowspan="2">
+            <div id="profileImg">
+                <img [src]="profile.imageUrl" alt="Image Here!" width="160em" height="160em">
+                <div *ngIf="isCurrentUser()" id="editButton">
+                    <button mat-raised-button color="primary" class="editBtn" (click)="goToEditProfile()">Edit
+                        Profile!</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="6" rowspan="2">
+            <mat-card id="stopCenterDiv">
+                <mat-card-content>
+                    <div layout="row" layout-align="center center" id="stopCenterDiv">
+                        <div class="mat-display-3 profileContent">{{profile.user.firstName}} {{profile.user.lastName}}
+                        </div>
+                        <div class="mat-display-2 profileContent" *ngIf="getCanShowEmail()">{{profile.user.email}}</div>
+                        <div class="mat-display-2 profileContent" *ngIf="getCanShowBirthday()">Birthday:
+                            {{profile.birthday}}</div>
                     </div>
-            </mat-card-content>
-        </mat-card>
-        <!-- <div layout="row" layout-align="center center" id="stopCenterDiv">
+                </mat-card-content>
+            </mat-card>
+            <!-- <div layout="row" layout-align="center center" id="stopCenterDiv">
         <div class="mat-display-3">{{profile.user.firstName}} {{profile.user.lastName}}</div>
         <div class="mat-display-2" *ngIf="getCanShowEmail()">{{profile.user.email}}</div>    
         </div> -->
-        
-    </mat-grid-tile>
-</mat-grid-list>
 
-    <mat-grid-list cols="10">
-        <mat-grid-tile colspan="3" rowspan="1">
-            <div *ngIf="isCurrentUser()">
-                <button mat-raised-button color="primary" class="editBtn" (click)="goToEditProfile()">Edit Profile!</button>
-            </div>
         </mat-grid-tile>
     </mat-grid-list>
 
-    <mat-grid-list cols="10">
-        <mat-grid-tile colspan="10" rowspan="1">
-    <mat-card id="halfWidth">
-        <mat-card-title class="centerHeader">About {{profile.user.firstName}}!</mat-card-title>
-        <mat-card-content id="stopWordFlow">
-            <p>{{profile.text}}</p>
-        </mat-card-content>
-    </mat-card>
-</mat-grid-tile>
-</mat-grid-list>
 
-    
+    <mat-grid-list cols="10" id="aboutText">
+        <mat-grid-tile colspan="10" rowspan="1">
+            <mat-card id="halfWidth">
+                <mat-card-title class="centerHeader">About {{profile.user.firstName}}!</mat-card-title>
+                <mat-card-content id="stopWordFlow">
+                    <p>{{profile.text}}</p>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+
 </div>
 
 
 <div *ngIf="!getCanShowProfile()">
 
-<h1>Profile Not Created!</h1>
+    <h1>Profile Not Created!</h1>
 
-<p>
-    Sorry, this user doesn't have a profile yet. Contact the user about making a profile, be a friend!
-</p>
+    <p>
+        Sorry, this user doesn't have a profile yet. Contact the user about making a profile, be a friend!
+    </p>
 </div>
