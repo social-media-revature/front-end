@@ -13,11 +13,9 @@ describe('NavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
+      imports: [ RouterTestingModule ],
+      providers: [ HttpClient, HttpHandler ],
       declarations: [ NavbarComponent ],
-      providers: [HttpClient, HttpHandler]
     })
     .compileComponents();
   });

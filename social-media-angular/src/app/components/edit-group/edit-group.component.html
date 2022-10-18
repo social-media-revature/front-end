@@ -1,0 +1,48 @@
+
+<header>
+    <h1>Edit Group</h1>
+</header>
+
+<body>
+    <form #myForm="ngForm" (ngSubmit)="editGroup()">
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="mb-3 mt-3">
+                    <label for="bTitle" class="form-label">Group Name:</label>
+                    <input type="text" class="form-control" id="groupName"
+                        placeholder="Name" name="groupName"
+                        [(ngModel)]="group.groupName" #groupName="ngModel" required>
+                    <div style="color: red"
+                        *ngIf="!groupName.valid">
+                        Group Name is required. Please enter the desired name of your group.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="groupDescription" class="form-label">Group
+                        Description:</label>
+                    <input type="text" class="form-control" id="groupDescription"
+                        placeholder="description" name="groupDescription"
+                        [(ngModel)]="group.groupDescription" #groupDescription="ngModel"
+                        required>
+                    <div style="color: red"
+                        *ngIf="!groupDescription.valid">
+                        Group Description is required. Please enter a description for your group.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="groupImageUrl" class="form-label">Group
+                        Image URL:</label>
+                    <input type="text" class="form-control" id="groupImageUrl"
+                        placeholder="New image URL" name="groupImageUrl"
+                        [(ngModel)]="group.groupImageUrl" #groupImageUrl="ngModel"
+                        required>
+                </div>
+
+            </div>
+            <div class="card-footer bg-success">
+                <button type="submit" class="btn btn-warning"
+                    [disabled]="!myForm.valid">Save</button>
+            </div>
+        </div>
+    </form>
+</body>

@@ -19,12 +19,15 @@ export class AuthService {
     const res = this.http.post<any>(`${this.authUrl}/login`, payload, {headers: environment.headers, withCredentials: environment.withCredentials});
     res.subscribe((data) => {
       this.currentUser = data
+      sessionStorage.setItem("currentUser",JSON.stringify(data));
     })
     return res;
   }
 
   logout(): void{
     this.http.post(`${this.authUrl}/logout`, null).subscribe();
+    sessionStorage.removeItem("currentUser");
+    sessionStorage.removeItem("clickedGroup");
   }
 
   register(firstName: string, lastName: string, email: string, password: string): Observable<any> {

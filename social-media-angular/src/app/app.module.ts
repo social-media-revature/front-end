@@ -15,10 +15,17 @@ import { CommentComponent } from './components/comment/comment.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { BookmarkComponent } from './components/bookmark/bookmark.component';
 import { LikeComponent } from './components/like/like.component';
-
+import { GetProfileComponent } from './components/profile-get/get-profile.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { PipesModule } from './modules/pipes.module';
+import { ObscenityPipe } from './pipes/obscenity.pipe';
+import { GroupService } from './services/group.service';
+import { GroupComponent } from './group/group.component';
+import { AllGroupsComponent } from './all-groups/all-groups.component';
+import { EditGroupComponent } from './components/edit-group/edit-group.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +38,14 @@ import { LikeComponent } from './components/like/like.component';
     UserCardComponent,
     NavbarComponent,
     UserInitialsPipe,
-    ResetPasswordComponent,
     BookmarkComponent,
     LikeComponent,
+    GetProfileComponent,
+    ProfileEditComponent,
+    ResetPasswordComponent,
+    AllGroupsComponent,
+    GroupComponent,
+    EditGroupComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +54,10 @@ import { LikeComponent } from './components/like/like.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    FormsModule,
+    PipesModule
   ],
-  providers: [],
+  providers: [ ObscenityPipe, GroupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

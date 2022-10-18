@@ -6,7 +6,12 @@ import { LoginComponent } from './components/login/login.component';
 import { PostFeedPageComponent } from './components/post-feed-page/post-feed-page.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
-
+import { AllGroupsComponent } from './components/all-groups/all-groups.component';
+import { EditGroupComponent } from './components/edit-group/edit-group.component';
+import { LoginComponent } from './components/login/login.component';
+import { PostFeedPageComponent } from './components/post-feed-page/post-feed-page.component';
+import { RegisterComponent } from './components/register/register.component';
+import { GroupComponent } from './components/group/group.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -16,6 +21,9 @@ const routes: Routes = [
   { path: "reset-password", component: ResetPasswordComponent},
   { path: "bookmark", component: BookmarkComponent},
   { path: "like", component: LikeComponent}
+  { path: "groups", component: AllGroupsComponent},
+  { path: "app-group", component: GroupComponent},
+  { path: "edit-group", component: EditGroupComponent
 ];
 
 @NgModule({

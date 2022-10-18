@@ -11,6 +11,7 @@ import User from '../models/User';
 export class PostService {
 
   postUrl: string = `${environment.baseUrl}/post`
+  groupsUrl: String = `${environment.baseUrl}/groups`
 
   constructor(private http: HttpClient) { }
 
