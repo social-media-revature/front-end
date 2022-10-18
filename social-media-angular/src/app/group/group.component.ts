@@ -60,7 +60,7 @@ export class GroupComponent implements OnInit {
   }
 
   toggleCreatePost = () => {
-    if(this.currentUser == null){
+    if(!this.JSONuser){
       this.router.navigate(['login']);
     }else if(!this.memberStatus){
       console.log("must be member");
