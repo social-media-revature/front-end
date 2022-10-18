@@ -1,6 +1,5 @@
 <div class="post-card" *ngFor="let likedPost of likedPosts">
     <mat-card>
-        {{countTotalLikes(likedPost)}}
         <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
             <mat-card-title>{{likedPost.author.firstName}} {{likedPost.author.lastName}}</mat-card-title>
@@ -11,7 +10,7 @@
             <p>
                 {{likedPost.text}}
             </p>
-           <mat-icon (click)="unLikeThisPost(likedPost)">favorite</mat-icon><h1>{{likes}}</h1>
+           <mat-icon (click)="unLikeThisPost(likedPost)">favorite</mat-icon>
         </mat-card-content>
     </mat-card>
 </div>

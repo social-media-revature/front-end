@@ -34,7 +34,7 @@ export class PostFeedPageComponent implements OnInit {
     this.bookmarkService.fetchAllBookmarks(this.authService.currentUser).subscribe(
       (response) => {
         this.bookmarks = response
-        localStorage.setItem("bookmarks",JSON.stringify(this.bookmarks));
+        // localStorage.setItem("bookmarks",JSON.stringify(this.bookmarks));
       }
     )
   }

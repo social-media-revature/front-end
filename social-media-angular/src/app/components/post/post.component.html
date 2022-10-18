@@ -10,11 +10,12 @@
             <p>
                 {{post.text}}
             </p>
-            <h1>{{isItBookmarked(post)}}</h1>
+            <!-- <h1>{{isItBookmarked(post)}}</h1> -->
             <mat-icon (click)="bookmarkThisPost(post)" *ngIf="!bookmarked">bookmark_border</mat-icon>
            <mat-icon (click)="unBookmarkThisPost(post)" *ngIf="bookmarked">bookmark</mat-icon>
            <mat-icon (click)="likeThisPost(post)" *ngIf="!liked">favorite_border</mat-icon>
            <mat-icon (click)="unLikeThisPost(post)" *ngIf="liked">favorite</mat-icon>
+           <h1>{{likes}}</h1>
             <div *ngFor="let comment of post.comments" class="comment-container">
                 <mat-divider></mat-divider>
                 <app-comment [comment]="comment"></app-comment>

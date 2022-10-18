@@ -49,18 +49,19 @@ export class LikeComponent implements OnInit {
 
   }
 
-  countTotalLikes(post:Post):number{
+  countTotalLikes(post:Post):void{
 
-    
+    console.log("Hello");
 
     this.likeService.howManyLikes(post, this.authService.currentUser).subscribe((response) => {
 
+      console.log("Man");
       this.likes = response;
+      console.log(response);
 
 
-    }).unsubscribe()
 
-    return this.likes;
+    })
     
     
 
