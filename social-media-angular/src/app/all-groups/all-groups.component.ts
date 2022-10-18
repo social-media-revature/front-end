@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-all-groups',
+  selector: 'groups',
   templateUrl: './all-groups.component.html',
   styleUrls: ['./all-groups.component.css']
 })

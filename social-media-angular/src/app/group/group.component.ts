@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, Inject, Injectable, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Injectable, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
@@ -43,10 +43,12 @@ export class GroupComponent implements OnInit {
     this.JSONgroup = sessionStorage.getItem("clickedGroup");
     this.group = JSON.parse(this.JSONgroup);
 
-    this.JSONuser = sessionStorage.getItem("currentUser");
-    this.currentUser = JSON.parse(this.JSONuser);
-    this.memberStatus = this.isMember();
-    this.loadPosts();
+    if(this.JSONuser != null){
+      this.JSONuser = sessionStorage.getItem("currentUser");
+      this.currentUser = JSON.parse(this.JSONuser);
+      this.memberStatus = this.isMember();
+      this.loadPosts();
+    }
   }
 
   loadGroup(): void{
@@ -58,7 +60,13 @@ export class GroupComponent implements OnInit {
   }
 
   toggleCreatePost = () => {
-    this.createPost = !this.createPost
+    if(this.currentUser == null){
+      this.router.navigate(['login']);
+    }else if(!this.memberStatus){
+      console.log("must be member");
+    }else{
+      this.createPost = !this.createPost
+    }
   }
 
   toggleJoin = () => {

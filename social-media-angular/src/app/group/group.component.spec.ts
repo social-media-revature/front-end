@@ -77,6 +77,7 @@ fdescribe('GroupComponent', () => {
         adminID:1,
         groupName: "asdfa",
         groupDescription: "afdsa",
+        groupImageUrl: "",
         groupMembers: []
       }
       spyOn(mockGroupService,'getAllPosts').and.returnValue(of(fakePosts));
@@ -90,6 +91,7 @@ fdescribe('GroupComponent', () => {
         adminID:1,
         groupName: "asdfa",
         groupDescription: "afdsa",
+        groupImageUrl: "",
         groupMembers: []
       }
       component.currentUser = fakeMember;

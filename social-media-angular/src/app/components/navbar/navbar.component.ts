@@ -64,5 +64,9 @@ export class NavbarComponent implements OnInit{
     
   }
 
+  go2groups(){
+    this.router.navigate(['groups']);
+  }
+
 
 }

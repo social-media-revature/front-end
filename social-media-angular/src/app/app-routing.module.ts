@@ -6,8 +6,8 @@ import { PostFeedPageComponent } from './components/post-feed-page/post-feed-pag
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
-import { AllGroupsComponent } from './components/all-groups/all-groups.component';
-import { GroupComponent } from './components/group/group.component';
+import { AllGroupsComponent } from './all-groups/all-groups.component';
+import { GroupComponent } from './group/group.component';
 import { EditGroupComponent } from './components/edit-group/edit-group.component';
 
 const routes: Routes = [

@@ -21,8 +21,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { PipesModule } from './modules/pipes.module';
 import { ObscenityPipe } from './pipes/obscenity.pipe';
 import { GroupService } from './services/group.service';
-import { GroupComponent } from './components/group/group.component';
-import { AllGroupsComponent } from './components/all-groups/all-groups.component';
+import { GroupComponent } from './group/group.component';
+import { AllGroupsComponent } from './all-groups/all-groups.component';
 import { EditGroupComponent } from './components/edit-group/edit-group.component';
 
 @NgModule({
@@ -39,8 +39,8 @@ import { EditGroupComponent } from './components/edit-group/edit-group.component
     GetProfileComponent,
     ProfileEditComponent,
     ResetPasswordComponent,
-    GroupComponent,
     AllGroupsComponent,
+    GroupComponent,
     EditGroupComponent
   ],
   imports: [
