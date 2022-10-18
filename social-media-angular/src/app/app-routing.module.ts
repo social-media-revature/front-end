@@ -6,6 +6,7 @@ import { PostFeedPageComponent } from './components/post-feed-page/post-feed-pag
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { EditProfileGuard } from './guards/edit-profile.guard';
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "post-feed", component: PostFeedPageComponent},
   { path: "get-profile/:pid", component: GetProfileComponent},
-  { path: "profile-edit/:pid", component: ProfileEditComponent},
+  { path: "profile-edit/:pid", component: ProfileEditComponent, canActivate: [EditProfileGuard]},
   { path: "reset-password", component: ResetPasswordComponent}
 ];
 
