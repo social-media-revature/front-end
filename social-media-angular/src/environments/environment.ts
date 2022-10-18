@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  withCredentials: false,
+  withCredentials: true,
   baseUrl: "http://localhost:8081",
   headers: {
     'Content-Type': 'application/json',
