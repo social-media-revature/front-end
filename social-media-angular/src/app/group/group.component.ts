@@ -106,12 +106,12 @@ export class GroupComponent implements OnInit {
   }
 
   isAdmin(): boolean{
-    return this.currentUser.id == this.group.adminID;
+    return this.currentUser.id === this.group.adminID;
   }
 
   isMember(): boolean{
     for(let i=0; i<this.group.groupMembers.length; i++){
-      if(this.currentUser.id == this.group.groupMembers[i].id){
+      if(this.currentUser.id === this.group.groupMembers[i].id){
         return true;
       }
     }return false;
