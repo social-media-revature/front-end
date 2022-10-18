@@ -11,7 +11,7 @@ export class AuthService {
 
   authUrl: string = `${environment.baseUrl}/auth`;
   currentUser: User
-
+  isLoggedIn: boolean = false;
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string): Observable<any> {
@@ -19,13 +19,14 @@ export class AuthService {
     const res = this.http.post<any>(`${this.authUrl}/login`, payload, {headers: environment.headers, withCredentials: environment.withCredentials});
     res.subscribe((data) => {
       this.currentUser = data
+      this.isLoggedIn = true;
       sessionStorage.setItem("currentUser",JSON.stringify(data));
     })
     return res;
   }
 
   logout(): void{
-    this.http.post(`${this.authUrl}/logout`, null).subscribe();
+    this.http.post(`${this.authUrl}/logout`, null).subscribe((data)=>{this.isLoggedIn = false});
     sessionStorage.removeItem("currentUser");
     sessionStorage.removeItem("clickedGroup");
   }
