@@ -162,6 +162,13 @@ public getDisplayEmail() : boolean{
     });
   }
 
+  public toggleShowBirthday(): void{
+    this.profile.displayBirthday = !this.profile.displayBirthday;
+    this.profileService.updateProfile(this.profile).subscribe((Response)=>{
+      this.profile = Response;
+    });
+  }
+
   /*public getFile() : void{
     this.fileStorageService.getFile(this.file.name).subscribe((Response)=>{
       console.log(Response);

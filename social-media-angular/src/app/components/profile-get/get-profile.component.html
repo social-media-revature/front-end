@@ -8,9 +8,9 @@
         <mat-card id="stopCenterDiv">
             <mat-card-content>
                 <div layout="row" layout-align="center center" id="stopCenterDiv">
-                    <div class="mat-display-3">{{profile.user.firstName}} {{profile.user.lastName}}</div>
-                    <div class="mat-display-2" *ngIf="getCanShowEmail()">{{profile.user.email}}</div>
-                    <div class="mat-display-2" *ngIf="getCanShowBirthday()">{{profile.birthday}}</div>       
+                    <div class="mat-display-3 profileContent">{{profile.user.firstName}} {{profile.user.lastName}}</div>
+                    <div class="mat-display-2 profileContent" *ngIf="getCanShowEmail()">{{profile.user.email}}</div>
+                    <div class="mat-display-2 profileContent" *ngIf="getCanShowBirthday()">Birthday: {{profile.birthday}}</div>       
                     </div>
             </mat-card-content>
         </mat-card>
