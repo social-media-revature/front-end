@@ -43,8 +43,10 @@ export class PostFeedPageComponent implements OnInit {
       .subscribe(
         (response) => {
           this.posts = [response, ...this.posts]
-          this.toggleCreatePost()
+          this.toggleCreatePost();
+          
         }
+          
       )
   }
 

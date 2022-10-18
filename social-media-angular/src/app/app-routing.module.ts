@@ -7,7 +7,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { EditProfileGuard } from './guards/edit-profile.guard';
-
+import { AllGroupsComponent } from './all-groups/all-groups.component';
+import { GroupComponent } from './group/group.component';
+import { EditGroupComponent } from './components/edit-group/edit-group.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -17,6 +19,11 @@ const routes: Routes = [
   { path: "get-profile/:pid", component: GetProfileComponent},
   { path: "profile-edit/:pid", component: ProfileEditComponent, canActivate: [EditProfileGuard]},
   { path: "reset-password", component: ResetPasswordComponent}
+  { path: "profile-edit/:pid", component: ProfileEditComponent},
+  { path: "reset-password", component: ResetPasswordComponent},
+  { path: "groups", component: AllGroupsComponent},
+  { path: "app-group", component: GroupComponent},
+  { path: "edit-group", component: EditGroupComponent}
 ];
 
 @NgModule({

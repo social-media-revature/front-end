@@ -1,5 +1,9 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+
 import { ProfileEditComponent } from './profile-edit.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -16,8 +20,8 @@ describe('ProfileEditComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ProfileEditComponent ],
-      imports: [HttpClientTestingModule, FormsModule],
-      providers: [ProfileService,{
+      imports: [HttpClientTestingModule, FormsModule, RouterTestingModule],
+      providers: [ProfileService,HttpClient, HttpHandler,{
         provide: ActivatedRoute,
         useValue: {
             snapshot: {

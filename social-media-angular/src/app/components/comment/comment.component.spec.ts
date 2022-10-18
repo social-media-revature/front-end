@@ -1,7 +1,7 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import { ObscenityPipe } from 'src/app/pipes/obscenity.pipe';
 import { CommentComponent } from './comment.component';
 
 describe('CommentComponent', () => {
@@ -12,16 +12,17 @@ describe('CommentComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       providers: [HttpClient, HttpHandler],
-      declarations: [ CommentComponent ]
+      declarations: [ CommentComponent, ObscenityPipe ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(CommentComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

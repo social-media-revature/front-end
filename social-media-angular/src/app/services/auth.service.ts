@@ -20,12 +20,15 @@ export class AuthService {
     res.subscribe((data) => {
       this.currentUser = data
       this.isLoggedIn = true;
+      sessionStorage.setItem("currentUser",JSON.stringify(data));
     })
     return res;
   }
 
   logout(): void{
     this.http.post(`${this.authUrl}/logout`, null).subscribe((data)=>{this.isLoggedIn = false});
+    sessionStorage.removeItem("currentUser");
+    sessionStorage.removeItem("clickedGroup");
   }
 
   register(firstName: string, lastName: string, email: string, password: string): Observable<any> {
