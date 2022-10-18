@@ -36,14 +36,14 @@ export class GroupComponent implements OnInit {
   memberStatus: boolean;
 
   constructor(private postService: PostService, private groupService: GroupService, private authService: AuthService,
-              private router: Router,
+              private router: Router
               ) { }
 
   ngOnInit(): void {
     this.JSONgroup = sessionStorage.getItem("clickedGroup");
     this.group = JSON.parse(this.JSONgroup);
 
-    if(this.JSONuser != null){
+    if(!this.JSONuser){
       this.JSONuser = sessionStorage.getItem("currentUser");
       this.currentUser = JSON.parse(this.JSONuser);
       this.memberStatus = this.isMember();
@@ -60,7 +60,7 @@ export class GroupComponent implements OnInit {
   }
 
   toggleCreatePost = () => {
-    if(this.currentUser == null){
+    if(!this.JSONuser){
       this.router.navigate(['login']);
     }else if(!this.memberStatus){
       console.log("must be member");
@@ -106,12 +106,12 @@ export class GroupComponent implements OnInit {
   }
 
   isAdmin(): boolean{
-    return this.currentUser.id == this.group.adminID;
+    return this.currentUser.id === this.group.adminID;
   }
 
   isMember(): boolean{
     for(let i=0; i<this.group.groupMembers.length; i++){
-      if(this.currentUser.id == this.group.groupMembers[i].id){
+      if(this.currentUser.id === this.group.groupMembers[i].id){
         return true;
       }
     }return false;

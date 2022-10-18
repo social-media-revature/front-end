@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GetProfileComponent } from './components/profile-get/get-profile.component';
+import { AllGroupsComponent } from './components/all-groups/all-groups.component';
+import { EditGroupComponent } from './components/edit-group/edit-group.component';
 import { LoginComponent } from './components/login/login.component';
 import { PostFeedPageComponent } from './components/post-feed-page/post-feed-page.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -18,8 +19,6 @@ const routes: Routes = [
   { path: "post-feed", component: PostFeedPageComponent},
   { path: "get-profile/:pid", component: GetProfileComponent},
   { path: "profile-edit/:pid", component: ProfileEditComponent, canActivate: [EditProfileGuard]},
-  { path: "reset-password", component: ResetPasswordComponent}
-  { path: "profile-edit/:pid", component: ProfileEditComponent},
   { path: "reset-password", component: ResetPasswordComponent},
   { path: "groups", component: AllGroupsComponent},
   { path: "app-group", component: GroupComponent},

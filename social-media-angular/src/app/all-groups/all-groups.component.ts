@@ -68,8 +68,12 @@ export class AllGroupsComponent implements OnInit {
 }
 
 viewGroup(clickedGroup: Group): void{
-  sessionStorage.setItem("clickedGroup", JSON.stringify(clickedGroup));
-  this.router.navigate(['app-group']);
+  if(!this.currentUser){
+    this.router.navigate(['login']);
+  }else{
+    sessionStorage.setItem("clickedGroup", JSON.stringify(clickedGroup));
+    this.router.navigate(['app-group']);
+  }
 }
 
 
