@@ -155,6 +155,12 @@ public getDisplayEmail() : boolean{
     
   }
 
+  public onBirthdayChanged(): void{
+    this.profileService.updateProfile(this.profile).subscribe((Response)=>{
+      this.profile = Response;
+    });
+  }
+
   public toggleShowEmail() : void{
     this.profile.displayEmail = !this.profile.displayEmail;
     this.profileService.updateProfile(this.profile).subscribe((Response)=>{

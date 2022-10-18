@@ -17,7 +17,7 @@
                 </div> -->
 
                 <div class="form-group">
-                    <label for="">About Me</label>
+                    <label for="aboutMeText">About Me</label>
                     <input type="text" class="form-control" id="aboutMeText" placeholder="Write about yourself"
                         name="aboutMeText" [(ngModel)]="profile.text" #pText="ngModel">
 
@@ -91,6 +91,20 @@
         </mat-card-content>
         <mat-card-actions>
             <button type="submit" mat-raised-button color="primary" (click)="toggleShowBirthday()">Change!</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>
+
+<div class="cardContainer" align="center">
+
+    <mat-card>
+        <mat-card-title>Change Birthday!</mat-card-title>
+        <mat-card-content>
+            <label for="birthday">Select a date!</label>
+            <input type="date" [(ngModel)]="profile.birthday" id="birthday" (change)="onBirthdayChanged()">
+        </mat-card-content>
+        <mat-card-actions>
         </mat-card-actions>
     </mat-card>
 
