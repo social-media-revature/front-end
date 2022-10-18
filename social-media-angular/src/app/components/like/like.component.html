@@ -1,0 +1,17 @@
+<div class="post-card" *ngFor="let likedPost of likedPosts">
+    <mat-card>
+        {{countTotalLikes(likedPost)}}
+        <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>{{likedPost.author.firstName}} {{likedPost.author.lastName}}</mat-card-title>
+            <mat-card-subtitle>{{likedPost.author.email}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image *ngIf="likedPost.imageUrl" src="{{ likedPost.imageUrl }}" alt="Post Image">
+        <mat-card-content>
+            <p>
+                {{likedPost.text}}
+            </p>
+           <mat-icon (click)="unLikeThisPost(likedPost)">favorite</mat-icon><h1>{{likes}}</h1>
+        </mat-card-content>
+    </mat-card>
+</div>

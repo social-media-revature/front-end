@@ -1,3 +1,16 @@
-<div id="post-feed" *ngFor="let bookmark of bookmarks">
-    <app-post [post]="bookmark"></app-post>
+<div class="post-card" *ngFor="let bookmark of bookmarks">
+    <mat-card>
+        <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>{{bookmark.author.firstName}} {{bookmark.author.lastName}}</mat-card-title>
+            <mat-card-subtitle>{{bookmark.author.email}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image *ngIf="bookmark.imageUrl" src="{{ bookmark.imageUrl }}" alt="Post Image">
+        <mat-card-content>
+            <p>
+                {{bookmark.text}}
+            </p>
+           <mat-icon (click)="unBookmarkThisPost(bookmark)">bookmark</mat-icon>
+        </mat-card-content>
+    </mat-card>
 </div>

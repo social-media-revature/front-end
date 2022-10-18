@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import Post from 'src/app/models/Post';
 import { AuthService } from 'src/app/services/auth.service';
 import { BookmarkService } from 'src/app/services/bookmark.service';
@@ -18,8 +19,9 @@ export class BookmarkComponent implements OnInit {
   })
 
   bookmarks: Post[] = [];
+  
 
-  constructor(private bookmarkService: BookmarkService, private authService: AuthService) { }
+  constructor(private bookmarkService: BookmarkService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void { 
     
@@ -31,5 +33,48 @@ export class BookmarkComponent implements OnInit {
     
   )
   }
+
+  bookmarkThisPost(post:Post):void{
+
+
+    this.bookmarkService.bookmarkThis(post,this.authService.currentUser).subscribe((response) => {});
+
+  }
+
+  unBookmarkThisPost(post:Post):void{
+
+
+    this.bookmarkService.unBookmarkThis(post, this.authService.currentUser).subscribe((response) =>{
+
+      this.bookmarkService.fetchAllBookmarks(this.authService.currentUser).subscribe(
+      (response) => {
+        this.bookmarks = response
+        this.router.navigate(['bookmark']);
+      }
+
+    )
+    
+    });
+
+   
+
+  
+
+  }
+
+  isItBookmarked(post:Post):boolean{
+
+    console.log(this.bookmarks);
+    console.log(post);
+
+    if(this.bookmarks.findIndex(x => x == post) !== -1){
+     
+
+       }
+
+   return this.bookmarks.findIndex(x => x == post) !== -1;
+  
+ }
+
 
 }

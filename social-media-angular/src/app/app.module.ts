@@ -17,6 +17,7 @@ import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { BookmarkComponent } from './components/bookmark/bookmark.component';
+import { LikeComponent } from './components/like/like.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { BookmarkComponent } from './components/bookmark/bookmark.component';
     UserInitialsPipe,
     ResetPasswordComponent,
     BookmarkComponent,
+    LikeComponent,
   ],
   imports: [
     BrowserModule,

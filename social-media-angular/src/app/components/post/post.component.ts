@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import Post from 'src/app/models/Post';
 import { AuthService } from 'src/app/services/auth.service';
 import { BookmarkService } from 'src/app/services/bookmark.service';
+import { LikeService } from 'src/app/services/like.service';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -20,8 +21,10 @@ export class PostComponent implements OnInit {
   replyToPost: boolean = false
 
   bookmarked = false;
+  liked = false;
+  bookmarks: Post[] = JSON.parse(localStorage.getItem("bookmarks") || "");
 
-  constructor(private postService: PostService, private authService: AuthService, private bookmarkService: BookmarkService) { }
+  constructor(private postService: PostService, private authService: AuthService, private bookmarkService: BookmarkService, private likeService: LikeService) { }
 
   ngOnInit(): void {
   }
@@ -56,9 +59,45 @@ export class PostComponent implements OnInit {
 
     this.bookmarkService.unBookmarkThis(post, this.authService.currentUser).subscribe((response) =>{
 
-      
+     
 
     });
 
   }
+
+  likeThisPost(post:Post):void{
+
+    this.liked = true;
+
+    this.likeService.likeThis(post,this.authService.currentUser).subscribe((response) => {});
+
+  }
+
+  unLikeThisPost(post:Post):void{
+
+    this.liked = false;
+
+    this.likeService.unLikeThis(post, this.authService.currentUser).subscribe((response) =>{
+
+     
+
+    });
+
+  }
+
+  
+  isItBookmarked(post:Post):boolean{
+
+    console.log(this.bookmarks);
+    console.log(post);
+
+    if(this.bookmarks.findIndex(x => x == post) !== -1){
+     
+      this.bookmarked = true;
+
+       }
+
+   return this.bookmarks.findIndex(x => x == post) !== -1;
+  
+ }
 }
