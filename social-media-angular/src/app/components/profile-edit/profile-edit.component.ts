@@ -22,6 +22,8 @@ export class ProfileEditComponent implements OnInit {
 
   private showOtherImage: boolean = false;
 
+  private isFileTooLarge: boolean = false;
+
   tempFileInfo : FileInfo = {
     name: "",
     url: ""
@@ -82,6 +84,10 @@ public getDisplayEmail() : boolean{
     return this.showOtherImage;
   }
 
+  getIsFileTooLarge() : boolean{
+    return this.isFileTooLarge;
+  }
+
   
 
   public updateProfile(): void{
@@ -117,10 +123,20 @@ public getDisplayEmail() : boolean{
   public onFileSelected(event : Event){
     
     this.selectedFile = (<HTMLInputElement>event.target).files;
+    console.log(this.selectedFile[0].size);
+    if(this.selectedFile[0].size>500000){
+      this.isFileTooLarge = true;
+      this.selectedFile = null;
+      (<HTMLInputElement>event.target).value = "";
+      
+      return;
+    }
+    this.isFileTooLarge = false;
     this.file = this.selectedFile[0];
     //console.log(this.selectedFile);
-    
+   
     this.fileStorageService.uploadFile(this.file).subscribe((Response)=>{
+      console.log(Response);
       this.tempFileInfo.url = this.baseurl +"/files/" + Response.url;
       this.tempFileInfo.name = Response.name;
       this.showOtherImage = true;

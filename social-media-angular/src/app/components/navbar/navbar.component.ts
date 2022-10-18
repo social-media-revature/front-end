@@ -64,5 +64,11 @@ export class NavbarComponent implements OnInit{
     
   }
 
+  isLoggedIn() : boolean{
+    return (this.authService.isLoggedIn);
+  }
 
+  goToProfile() : void{
+    this.router.navigate([`get-profile/${this.authService.currentUser.id}`]);
+  }
 }

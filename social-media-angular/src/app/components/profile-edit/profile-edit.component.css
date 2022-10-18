@@ -26,3 +26,8 @@ div{
     width: 2em;
     color: red;
 }
+
+#imageError{
+    text-align: center;
+    color: red;
+}

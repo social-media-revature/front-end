@@ -71,7 +71,7 @@ export class GetProfileComponent implements OnInit {
     this.profileService.getOneProfile(user).subscribe((Response) => {
       console.log(Response)
       if (Response.id == -1) { //this means there isn't a profile! Will make one or find out if its other user
-        if(this.authService.currentUser && this.authService.currentUser.id == userId) //means the person accessing the profile is themself so it will be made!
+        if(this.authService.isLoggedIn && this.authService.currentUser.id == userId) //means the person accessing the profile is themself so it will be made!
         this.createProfile();
         else  //it is a different person, so we are showing a different screen, since people can't make profiles for others
         this.canShowProfile = false;
@@ -95,7 +95,7 @@ export class GetProfileComponent implements OnInit {
   }
 
   isCurrentUser() : boolean{
-    return (this.authService.currentUser && this.profile.user.id == this.authService.currentUser.id);
+    return (this.authService.isLoggedIn && this.profile.user.id == this.authService.currentUser.id);
   }
 
 }

@@ -1,4 +1,4 @@
-  <div class="cardContainer alignOnTop" align="center">
+<div class="cardContainer alignOnTop" align="center">
     <form #myForm="ngForm" (ngSubmit)="updateProfile()">
         <mat-card>
             <mat-card-title>Edit Profile!</mat-card-title>
@@ -19,10 +19,8 @@
                 <div class="form-group">
                     <label for="">About Me</label>
                     <input type="text" class="form-control" id="aboutMeText" placeholder="Write about yourself"
-                        name="aboutMeText" [(ngModel)]="profile.text"
-                        #pText = "ngModel"
-                        >
-                      
+                        name="aboutMeText" [(ngModel)]="profile.text" #pText="ngModel">
+
 
                 </div>
             </mat-card-content>
@@ -31,16 +29,16 @@
             </mat-card-actions>
         </mat-card>
     </form>
-</div>  
+</div>
 
 <div class="cardContainer" align="center">
-   
-        <mat-card>
-            <mat-card-title>Edit Avatar!</mat-card-title>
+
+    <mat-card>
+        <mat-card-title>Edit Avatar!</mat-card-title>
 
 
-            <mat-card-content>
-                <div id="imgRow">
+        <mat-card-content>
+            <div id="imgRow">
                 <div class="noMargin">
                     <img [src]="profile.imageUrl" alt="Profile Image" width="250px" height="250px">
                     <div class="mat-display-2 noMargin">Before</div>
@@ -50,23 +48,26 @@
                     <img [src]="tempFileInfo.url" alt="Profile Image" width="250px" height="250px">
                     <div class="mat-display-2 noMargin">After</div>
                 </div>
+            </div>
+                <div id="imageError" *ngIf="getIsFileTooLarge()">
+                    <span>File is too large! Max is 500KB</span>
                 </div>
-                <div>
-                    <label for="imageUpload">Choose a file! </label>
-                    <input type="file" id="imageUpload" (change)="onFileSelected($event)">
-                </div>
+            <div>
+                <label for="imageUpload">Choose a file! </label>
+                <input type="file" id="imageUpload" (change)="onFileSelected($event)">
+            </div>
 
-                
-            </mat-card-content>
-            <mat-card-actions>
-                <button type="submit" mat-raised-button color="primary" (click)="onUpload()">Upload!</button>
-            </mat-card-actions>
-        </mat-card>
-    
-</div>  
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button type="submit" mat-raised-button color="primary" (click)="onUpload()">Upload!</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>
 
 <div class="cardContainer" align="center">
-   
+
     <mat-card>
         <mat-card-title>Display Email?</mat-card-title>
         <mat-card-content>
@@ -78,10 +79,10 @@
         </mat-card-actions>
     </mat-card>
 
-</div>  
+</div>
 
 <div class="cardContainer" align="center">
-   
+
     <mat-card>
         <mat-card-title>Show Birthday?</mat-card-title>
         <mat-card-content>
@@ -93,11 +94,11 @@
         </mat-card-actions>
     </mat-card>
 
-</div>  
+</div>
 
 
 <div class="cardContainer" align="center">
-   
+
     <mat-card>
         <mat-card-title>Happy with changes?</mat-card-title>
         <mat-card-content>
@@ -107,7 +108,7 @@
         </mat-card-actions>
     </mat-card>
 
-</div>  
+</div>
 
 
 <!-- <div class="cardContainer" align="center">
