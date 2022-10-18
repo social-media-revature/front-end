@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import Post from 'src/app/models/Post';
 import { AuthService } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service';
@@ -18,7 +19,7 @@ export class PostComponent implements OnInit {
   @Input('post') post: Post
   replyToPost: boolean = false
 
-  constructor(private postService: PostService, private authService: AuthService) { }
+  constructor(private postService: PostService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -37,5 +38,9 @@ export class PostComponent implements OnInit {
           this.toggleReplyToPost()
         }
       )
+  }
+
+  goToProfile(){
+    this.router.navigate([`get-profile/${this.post.author.id}`]);
   }
 }
