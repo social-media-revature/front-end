@@ -6,15 +6,15 @@
     <mat-card>
         <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
-            <mat-card-title>{{bookmark.author.firstName}} {{bookmark.author.lastName}}</mat-card-title>
-            <mat-card-subtitle>{{bookmark.author.email}}</mat-card-subtitle>
+            <mat-card-title>{{bookmark.author.firstName | obscenity }} {{bookmark.author.lastName | obscenity }}</mat-card-title>
+            <mat-card-subtitle>{{bookmark.author.email | obscenity}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image *ngIf="bookmark.imageUrl" src="{{ bookmark.imageUrl }}" alt="Post Image">
+        <img mat-card-image *ngIf="bookmark.imageUrl" src="{{ bookmark.imageUrl | obscenity}}" alt="Post Image">
         <mat-card-content>
             <p>
-                {{bookmark.text}}
+                {{bookmark.text | obscenity}}
             </p>
-           <mat-icon (click)="unBookmarkThisPost(bookmark)">bookmark</mat-icon>
+           <mat-icon (click)="unBookmarkThisPost(bookmark)" style="color: #673AB7" >bookmark</mat-icon>
         </mat-card-content>
     </mat-card>
 </div>

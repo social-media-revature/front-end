@@ -12,9 +12,20 @@ div{
     justify-content: center;
 }
 
+.imgCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .noMargin{
     margin: 5px;
     
+}
+
+.marginTop{
+    margin-top: 10px;
 }
 
 #yesblock{
