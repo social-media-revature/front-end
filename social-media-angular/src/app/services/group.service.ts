@@ -44,12 +44,12 @@ export class GroupService{
     }
 
     deleteMember(userID: number, groupID: number): void {
-        this.httpClient.delete(this.groupUrl+groupID+"/"+userID);
+        this.httpClient.delete(this.groupUrl+groupID+'/'+userID);
     }
 
 
-    editGroup(groupID: number): void{
-        this.httpClient.put<Group>(this.groupUrl, groupID);
+    editGroup(updatedGroup: Group): void{
+        this.httpClient.put<Group>(this.groupUrl, updatedGroup);
     }
 
 }

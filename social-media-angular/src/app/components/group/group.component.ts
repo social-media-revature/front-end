@@ -43,12 +43,10 @@ export class GroupComponent implements OnInit {
     this.JSONgroup = sessionStorage.getItem("clickedGroup");
     this.group = JSON.parse(this.JSONgroup);
 
-    if(!this.JSONuser){
       this.JSONuser = sessionStorage.getItem("currentUser");
       this.currentUser = JSON.parse(this.JSONuser);
       this.memberStatus = this.isMember();
       this.loadPosts();
-    }
   }
 
   loadGroup(): void{
@@ -101,6 +99,7 @@ export class GroupComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  // go2edit
   editGroup(): void{
     this.router.navigate(['edit-group']);
   }
@@ -111,7 +110,7 @@ export class GroupComponent implements OnInit {
 
   isMember(): boolean{
     for(let i=0; i<this.group.groupMembers.length; i++){
-      if(this.currentUser.id === this.group.groupMembers[i].id){
+      if(this.currentUser.id == this.group.groupMembers[i].id){
         return true;
       }
     }return false;
