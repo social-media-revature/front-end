@@ -14,9 +14,10 @@
                     <input matInput type="text" class="form-control" id="aboutMeText" placeholder="Write about yourself"
                         name="aboutMeText" [(ngModel)]="profile.text" name="aboutMeText" #pText="ngModel">
                     <mat-hint>Don't be shy!</mat-hint>
-                    </mat-form-field>
-                    <button matInput type="submit" class="mat-small" mat-raised-button color="primary"
+                    </mat-form-field><div>
+                    <button type="submit" class="mat-small" mat-raised-button color="primary"
                         (click)="updateProfile()">Update</button>
+                    </div>
                     <div class="full-width">
                         <label>Show Birthday?</label>
                         <mat-card-content>

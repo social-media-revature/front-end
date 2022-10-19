@@ -93,7 +93,7 @@ public getDisplayEmail() : boolean{
   public updateProfile(): void{
     this.profileService.updateProfile(this.profile).subscribe((Response)=>{
       this.profile = Response;
-      this.router.navigate([`get-profile/${this.profile.user.id}`]);
+     // this.router.navigate([`get-profile/${this.profile.user.id}`]);
     })
   }
 
@@ -122,7 +122,6 @@ public getDisplayEmail() : boolean{
     }
     this.isFileTooLarge = false;
     this.file = this.selectedFile[0];
-    //console.log(this.selectedFile);
    
     this.fileStorageService.uploadFile(this.file).subscribe((Response)=>{
       this.tempFileInfo.url = this.baseurl +"/files/" + Response.url;

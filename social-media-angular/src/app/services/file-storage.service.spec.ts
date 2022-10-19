@@ -23,7 +23,6 @@ describe('FileStorageService', () => {
   });
 
   it('should return the right fileInfo on upload', () => {
-     //const pro = jasmine.createSpyObj('ProfileService',["getAllProfile()"]);
      const pro = jasmine.createSpyObj('FileStorageService',["uploadFile"]);
     
      let blob : any = new Blob([""], { type: 'text/html' });

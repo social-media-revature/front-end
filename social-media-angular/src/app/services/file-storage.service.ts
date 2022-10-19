@@ -16,12 +16,9 @@ export class FileStorageService {
   uploadFile(file : File) : Observable<FileInfo>{
     const fd = new FormData();
     fd.append("file",file);
-    console.log(fd.getAll("file"));
     
     return this.httpClient.post<FileInfo>(this.baseUrl + "/upload",fd);
   }
 
-  /*getFile(fileName : string) : Observable<any>{
-    return this.httpClient.get<any>(this.baseUrl + "/files/" + fileName);
-  }*/
+  
 }
