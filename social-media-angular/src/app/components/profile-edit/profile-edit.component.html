@@ -11,7 +11,7 @@
                 <mat-form-field class="full-width">
                     <label for="aboutMeText">About Me: </label>
                     <input type="text" class="form-control" id="aboutMeText" placeholder="Write about yourself"
-                        name="aboutMeText" [(ngModel)]="profile.text" #pText="ngModel">
+                        name="aboutMeText" [(ngModel)]="profile.text" name="aboutMeText" #pText="ngModel">
                     <button type="submit" class="mat-small" mat-raised-button color="primary"
                         (click)="updateProfile()">Update</button>
                     <mat-form-field class="full-width">
@@ -24,7 +24,7 @@
                         </mat-card-content>
                         <mat-card-content>
                             <label for="birthday">Set birthdate: </label>
-                            <input type="date" [(ngModel)]="profile.birthday" id="birthday"
+                            <input type="date" [(ngModel)]="profile.birthday" name="birthday" id="birthday"
                                 (change)="onBirthdayChanged()">
                         </mat-card-content>
                         <label>Display Email?</label>
