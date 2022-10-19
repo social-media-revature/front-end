@@ -59,7 +59,6 @@ export class GetProfileComponent implements OnInit {
   initializeProfile() {
 
     let userId : any = this.activatedRoute.snapshot.paramMap.get("pid");
-    console.log("userId at the moment is: " + userId);
 
     let user: UserWithPassword = {
       id: userId,
@@ -69,7 +68,6 @@ export class GetProfileComponent implements OnInit {
       lastName: ""
     }
     this.profileService.getOneProfile(user).subscribe((Response) => {
-      console.log(Response)
       if (Response.id == -1) { //this means there isn't a profile! Will make one or find out if its other user
         if(this.authService.isLoggedIn && this.authService.currentUser.id == userId){ //means the person accessing the profile is themself so it will be made!
         this.profile.imageUrl = "./assets/images/favicon.png";    this.createProfile();}
@@ -85,7 +83,6 @@ export class GetProfileComponent implements OnInit {
   createProfile(): void {
     this.profile.user = this.authService.currentUser;
     this.profileService.createProfile(this.profile).subscribe((Response) => {
-      console.log(Response);
       this.profile = Response;
     })
   }

@@ -70,13 +70,10 @@ export class PostComponent implements OnInit {
   //   }
 
   // ngOnInit(): void {
-    console.log("author is: " + this.post.author.id);
     this.profileService.getOneProfile(new UserWithPassword(this.post.author.id,"","","","")).subscribe((Response)=>{
-      console.log("this is after getone profile, id is: " + Response.user.id);
       if(Response.imageUrl != ""){
         this.profileImageUrl = Response.imageUrl;
         document.getElementById("mouseCursor")?.setAttribute("style", `background-image: url(${Response.imageUrl})`);
-        console.log("Actually called the init in post!");
       }
       else{
         this.profileImageUrl = "./assets/images/favicon.png";
@@ -148,25 +145,6 @@ export class PostComponent implements OnInit {
 
   }
 
-  
-//   isItBookmarked(post:Post):boolean{
-
-//     // this.bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "");
-
-//     console.log(this.bookmarks);
-//     console.log(post);
-//     console.log(this.bookmarks.indexOf(post));
-//     console.log(1+1 == 2);
-
-//     if(this.bookmarks.findIndex(x => x == post) !== -1){
-     
-//       this.bookmarked = true;
-
-//        }
-
-//    return this.bookmarks.findIndex(x => x == post) !== -1;
-  
-//  }
   goToProfile(){
     this.router.navigate([`get-profile/${this.post.author.id}`]);
   }

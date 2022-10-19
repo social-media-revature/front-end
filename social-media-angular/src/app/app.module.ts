@@ -55,7 +55,7 @@ import { EditGroupComponent } from './components/edit-group/edit-group.component
     BrowserAnimationsModule,
     AngularMaterialModule,
     FormsModule,
-    PipesModule
+    PipesModule,
   ],
   providers: [ ObscenityPipe, GroupService],
   bootstrap: [AppComponent]

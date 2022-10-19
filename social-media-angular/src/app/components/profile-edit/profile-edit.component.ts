@@ -93,7 +93,6 @@ public getDisplayEmail() : boolean{
   public updateProfile(): void{
     this.profileService.updateProfile(this.profile).subscribe((Response)=>{
       this.profile = Response;
-      console.log(Response);
       this.router.navigate([`get-profile/${this.profile.user.id}`]);
     })
   }
@@ -104,26 +103,16 @@ public getDisplayEmail() : boolean{
 
   public updateProfileImage(): void{
     this.val = document.getElementById("image_url");
-    //let testdata : FormData = new FormData();
-    console.log(this.val.value);
-    //testdata.append("file",this.val.value);
     if(this.val instanceof (File)){
-      console.log("IT IS A FILE");
     }
     else{
-      console.log("NONO NOT A FILE");
     }
-    //testdata.append()
-    //this.fileStorageService.uploadFile(this.val.value).subscribe((Response)=>{
-      //console.log(Response);
-    //});
     
   }
 
   public onFileSelected(event : Event){
     
     this.selectedFile = (<HTMLInputElement>event.target).files;
-    console.log(this.selectedFile[0].size);
     if(this.selectedFile[0].size>500000){
       this.isFileTooLarge = true;
       this.selectedFile = null;
@@ -136,7 +125,6 @@ public getDisplayEmail() : boolean{
     //console.log(this.selectedFile);
    
     this.fileStorageService.uploadFile(this.file).subscribe((Response)=>{
-      console.log(Response);
       this.tempFileInfo.url = this.baseurl +"/files/" + Response.url;
       this.tempFileInfo.name = Response.name;
       this.showOtherImage = true;
@@ -145,10 +133,8 @@ public getDisplayEmail() : boolean{
 
   public onUpload() : void{
     this.fileStorageService.uploadFile(this.file).subscribe((Response)=>{
-      console.log(Response);
       this.profile.imageUrl = this.baseurl +"/files/" + Response.url;
       this.profileService.updateProfile(this.profile).subscribe((Response)=>{
-        console.log(Response);
         this.showOtherImage = false;
       });
     });
@@ -175,9 +161,4 @@ public getDisplayEmail() : boolean{
     });
   }
 
-  /*public getFile() : void{
-    this.fileStorageService.getFile(this.file.name).subscribe((Response)=>{
-      console.log(Response);
-    });
-  }*/
 }

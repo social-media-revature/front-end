@@ -1,13 +1,7 @@
 <div *ngIf="getCanShowProfile()">
     <mat-grid-list cols="10">
         <mat-grid-tile colspan="2" rowspan="2">
-            <!-- <div id="profileImg">
-                <img [src]="profile.imageUrl" alt="Image Here!" width="160em" height="160em">
-                <div *ngIf="isCurrentUser()" id="editButton">
-                    <button mat-raised-button color="primary" class="editBtn mat-small" (click)="goToEditProfile()">Edit
-                        Profile!</button>
-                </div>
-            </div> -->
+           
         </mat-grid-tile>
         <mat-grid-tile colspan="6" rowspan="2">
             <mat-card id="stopCenterDiv">
@@ -19,7 +13,7 @@
                         <div class="wrapAboutText"><p>{{profile.text | obscenity}}</p></div>
                         </div>
                     </div>
-                    <button mat-raised-button color="primary" class="editBtn mat-small" *ngIf="isCurrentUser()" (click)="goToEditProfile()">Edit
+                    <button matBtn mat-raised-button color="primary" class="editBtn mat-small" *ngIf="isCurrentUser()" (click)="goToEditProfile()">Edit
                         Profile!</button>
                     <div layout="row" layout-align="center center" id="alignRowDiv" class="someMarginTop">
                         <div>Name: {{profile.user.firstName | obscenity}} {{profile.user.lastName | obscenity}}

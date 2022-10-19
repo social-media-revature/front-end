@@ -88,7 +88,6 @@ describe('GetProfileComponent', () => {
 
 
     component = fixture.componentInstance;
-    // fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -112,7 +111,6 @@ describe('GetProfileComponent', () => {
     otherProfile.id = -1;
     const check = spyOn(component,"createProfile");
     spyOn(service, 'getOneProfile').and.returnValue(of(otherProfile));
-    console.log("TESTING CALLING INITIALIZE")
     component.initializeProfile();
     
     expect(check).toHaveBeenCalledTimes(1);
