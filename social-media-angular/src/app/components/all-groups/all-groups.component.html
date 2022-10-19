@@ -1,5 +1,5 @@
         <div style="margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 20px;">
-            
+    
                 
                     <button mat-raised-button color="logout" (click)="toggleGroupForm()">Create New Group</button>
                     <div *ngIf="showCreateGroupForm">
@@ -26,10 +26,6 @@
                                                     [(ngModel)]="newGroup.groupDescription" #groupDescription="ngModel"
                                                     required>
                                                 <div style="color: red"
-                                                    *ngIf="!groupName.valid && groupName.touched">
-                                                    Group Name is required. Please enter the desired name of your group.
-                                                </div>
-                                                <div style="color: red"
                                                     *ngIf="!groupDescription.valid && groupDescription.touched">
                                                     Group Description is required. Please enter a description of your group.
                                                 </div>
@@ -41,6 +37,9 @@
                                                     placeholder="Provide a URL for the group image" name="groupImageUrl"
                                                     [(ngModel)]="newGroup.groupImageUrl" #groupImageUrl="ngModel"
                                                     required>
+                                                <div style="color: red" *ngIf="!groupImageUrl.valid && groupImageUrl.touched">
+                                                        Group Image is required. Please enter an image for your group.
+                                                </div>
                                             </div>
 
                                         </div>
