@@ -48,8 +48,8 @@ export class GroupService{
     }
 
 
-    editGroup(updatedGroup: Group): void{
-        this.httpClient.put<Group>(this.groupUrl, updatedGroup);
+    editGroup(updatedGroup: Group): Observable<Group>{
+        return this.httpClient.put<Group>(this.groupUrl, updatedGroup);
     }
 
 }

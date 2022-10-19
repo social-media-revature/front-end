@@ -36,6 +36,9 @@
                         placeholder="New image URL" name="groupImageUrl"
                         [(ngModel)]="group.groupImageUrl" #groupImageUrl="ngModel"
                         required>
+                    <div style="color: red" *ngIf="!groupImageUrl.valid">
+                        Group image is required. Please enter a description for your group.
+                    </div>
                 </div>
 
             </div>
