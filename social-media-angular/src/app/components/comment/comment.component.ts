@@ -21,9 +21,11 @@ export class CommentComponent implements OnInit {
   constructor(private postService: PostService, private authService: AuthService) { }
 
   ngOnInit(): void {
+
   }
 
   toggleReplyToComment = () => {
+    console.log("hello");
     this.replyToComment = !this.replyToComment
   }
 
