@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Post from '../models/Post';
+import User from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import Post from '../models/Post';
 export class PostService {
 
   postUrl: string = `${environment.baseUrl}/post`
+  groupsUrl: String = `${environment.baseUrl}/groups`
 
   constructor(private http: HttpClient) { }
 
@@ -20,4 +22,5 @@ export class PostService {
   upsertPost(post: Post): Observable<Post> {
     return this.http.put<Post>(`${this.postUrl}`, post, {headers: environment.headers, withCredentials: environment.withCredentials})
   }
+
 }

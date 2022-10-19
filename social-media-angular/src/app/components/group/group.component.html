@@ -1,0 +1,48 @@
+
+<header>
+    <img mat-card-md-image *ngIf="group.groupImageUrl" src="{{ group.groupImageUrl }}" alt="group image">
+    <div class="block">
+        <h1 style="font-size:x-large">{{ this.group.groupName }}</h1>
+        <p>{{ this.group.groupDescription }}</p>
+    </div>
+    <div>
+        <button *ngIf="!currentUser" type="button" (click)="go2login()"> Join Group </button>
+        <!-- <button *ngIf="isAdmin()" type="button" (click)="editGroup()"> Edit Group </button> -->
+        <button *ngIf="!isMember()" type="button" (click)="addMember()"> Join Group </button>
+        <!-- <button *ngIf="isMember() && !isAdmin()" type="button" (click)="deleteMember()"> Leave Group </button> -->
+    </div>
+</header>
+
+<body>
+    <div [ngClass]="['sidebyside', 'post-feed-container']">
+        <form class="form" *ngIf="!createPost; else createPostTemplate">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Something on your mind?</mat-label>
+                <input matInput (focus)="toggleCreatePost()">
+            </mat-form-field>
+        </form>
+
+        <ng-template #createPostTemplate>
+            <form class="form" [formGroup]="postForm" (ngSubmit)="submitPost($event)">
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Make a Post</mat-label>
+                    <textarea matInput autofocus formControlName="text"></textarea>
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Add an Image?</mat-label>
+                    <input matInput formControlName="imageUrl">
+                </mat-form-field>
+                <div align="end">
+                    <button mat-raised-button color="warn" (click)="toggleCreatePost()">Cancel</button>
+                    <button mat-raised-button color="primary" (click)="submitPost($event)">Post</button>
+                </div>
+
+            </form>
+        </ng-template>
+
+
+
+        <div id="post-feed" *ngFor="let post of posts">
+            <app-post [post]="post"></app-post>
+        </div>
+    </div>

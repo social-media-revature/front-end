@@ -10,10 +10,13 @@ import { MainComponent } from 'src/main';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit{
+
+  JSONuser: any;
      
   constructor(private authService: AuthService, private router: Router) { }
   
   ngOnInit(): void {
+    this.JSONuser = sessionStorage.getItem("currentUser");
 
     var initMode = localStorage.getItem('colorMode');
     if (initMode == null) {localStorage.setItem('colorMode', 'light-mode')};
@@ -43,6 +46,11 @@ export class NavbarComponent implements OnInit{
     this.router.navigate(['login']);
   }
 
+  go2login() {
+    this.router.navigate(['login']);
+  }
+
+
   darkMode(){
     var colorMode = localStorage.getItem('colorMode');
     switch(colorMode) {
@@ -64,5 +72,15 @@ export class NavbarComponent implements OnInit{
     
   }
 
+  isLoggedIn() : boolean{
+    return (this.authService.isLoggedIn);
+  }
+  go2groups(){
+    this.router.navigate(['groups']);
+  }
 
+
+  goToProfile() : void{
+    this.router.navigate([`get-profile/${this.authService.currentUser.id}`]);
+  }
 }
