@@ -1,8 +1,8 @@
 <header style="border:2px">
-    <img mat-card-md-image *ngIf="group.groupImageUrl" src="{{ group.groupImageUrl }}" alt="header-image">
+    <img mat-card-md-image *ngIf="group.groupImageUrl" src="{{ group.groupImageUrl  | obscenity }}" alt="header-image">
     <div class="block">
-        <h1 style="font-size:x-large">{{ this.group.groupName }}</h1>
-        <p>{{ this.group.groupDescription }}</p>
+        <h1 style="font-size:x-large">{{ this.group.groupName  | obscenity }}</h1>
+        <p>{{ this.group.groupDescription  | obscenity }}</p>
     </div>
     <div>
         <button *ngIf="!currentUser" type="button" (click)="go2login()"> Join Group </button>

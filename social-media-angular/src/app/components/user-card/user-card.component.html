@@ -2,10 +2,10 @@
     <img class="user-circle" id="userCursor" [src]="profileImageUrl">
     <mat-divider></mat-divider>
     <p style="padding-top: 1em; font-weight: bold;">
-        {{user.firstName}} {{user.lastName}}
+        {{user.firstName  | obscenity }} {{user.lastName  | obscenity }}
     </p>
     <p>
-        {{user.email}}
+        {{user.email  | obscenity }}
     </p>
     
 </mat-card>
