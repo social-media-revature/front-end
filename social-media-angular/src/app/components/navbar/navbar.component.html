@@ -1,6 +1,6 @@
 <p>
     <mat-toolbar>
-        <span [routerLink]="['/post-feed']"><img src="https://s.imgur.com/B13NqRU.jpg"></span>        
+        <span id="mouseCursor" (click)="homepage();"><img src="https://s.imgur.com/B13NqRU.jpg"></span>        
         <span class="spacer"></span>
         <button mat-raised-button (click)="go2groups()" *ngIf="isLoggedIn()" color="dark">Groups <span class="material-symbols-outlined">groups</span></button>
         <button [routerLink]="['/bookmark']" mat-raised-button color="dark" *ngIf="isLoggedIn()">My <span class="material-symbols-outlined">bookmark</span></button>

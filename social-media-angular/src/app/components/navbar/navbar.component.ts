@@ -50,6 +50,14 @@ export class NavbarComponent implements OnInit{
     this.router.navigate(['login']);
   }
 
+  homepage() {
+    if(this.isLoggedIn() == true) {
+      this.router.navigate(['post-feed']);
+    } else {
+      this.router.navigate(['login']);
+    }
+  }
+
 
   darkMode(){
     var colorMode = localStorage.getItem('colorMode');
