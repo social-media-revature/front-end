@@ -80,7 +80,7 @@ export class GroupComponent implements OnInit {
   submitPost = (e: any) => {
     e.preventDefault();
     this.groupService.upsertPost(new GroupPost(0, this.group.groupID, this.postForm.value.text ||
-                "", this.postForm.value.imageUrl || "", this.authService.currentUser, [])).subscribe(
+                "", this.postForm.value.imageUrl || "", this.currentUser, [])).subscribe(
         (response) => {
           this.posts = [response, ...this.posts]
           this.toggleCreatePost()
