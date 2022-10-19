@@ -105,7 +105,7 @@ export class GroupComponent implements OnInit {
   }
 
   isAdmin(): boolean{
-    return this.currentUser.id === this.group.adminID;
+    return this.currentUser.id == this.group.adminID;
   }
 
   isMember(): boolean{
