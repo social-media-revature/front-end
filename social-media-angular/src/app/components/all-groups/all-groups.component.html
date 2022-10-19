@@ -59,13 +59,13 @@
                         <mat-card>
                             <mat-card-header>
                                 <img mat-card-avatar *ngIf="eachGroup.groupImageUrl" src="{{ eachGroup.groupImageUrl }}" alt="header-image">
-                                <mat-card-title>{{ eachGroup.groupName }}</mat-card-title>
+                                <mat-card-title>{{ eachGroup.groupName | obscenity }}</mat-card-title>
                                 <mat-card-subtitle>
                                     <button mat-raised-button color="logout" (click)="viewGroup(eachGroup)">
                                         <span>View Group</span>
                                     </button>
                                 </mat-card-subtitle>
-                                <mat-card-content>{{ eachGroup.groupDescription }}</mat-card-content>
+                                <mat-card-content>{{ eachGroup.groupDescription | obscenity }}</mat-card-content>
                             </mat-card-header>
                         </mat-card>
                         <br>
