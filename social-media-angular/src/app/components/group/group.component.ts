@@ -101,6 +101,7 @@ export class GroupComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  // go2edit
   editGroup(): void{
     this.router.navigate(['edit-group']);
   }
