@@ -1,155 +1,61 @@
-<div class="cardContainer alignOnTop" align="center">
-    <form #myForm="ngForm" (ngSubmit)="updateProfile()">
-        <mat-card>
-            <mat-card-title>Edit Profile!</mat-card-title>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title class="login-text">Edit Profile</mat-card-title>
+      </mat-card-header>
+      <form class="form" (ngSubmit)="goToProfile()">
+        <mat-card-content>
+          
 
-
+            <label>Edit Avatar!</label>
             <mat-card-content>
-
-                <!-- <div class="form-group">
-                    <label for="">Image URL</label>
-                    <input type="text" class="form-control" id="image_url" placeholder="Enter Image URL"
-                        name="image_url" [(ngModel)]="profile.imageUrl"
-                        #pImg = "ngModel"
-                        >
-                      
-
-                </div> -->
-
-                <div class="form-group">
-                    <label for="aboutMeText">About Me</label>
+                <div id="imgRow">
+                    <div class="noMargin">
+                        <img [src]="profile.imageUrl" alt="Profile Image" width="250px" height="250px">
+                        <div class="noMargin">Before</div>
+                    </div>
+    
+                    <div class="noMargin" *ngIf="getShowOtherImage()">
+                        <img [src]="tempFileInfo.url" alt="Profile Image" width="250px" height="250px">
+                        <div class=" noMargin">After</div>
+                    </div>
+                </div>
+                    <div id="imageError" *ngIf="getIsFileTooLarge()">
+                        <span>File is too large! Max is 500KB</span>
+                    </div>
+                <div>
+                    <label for="imageUpload">Choose a file! </label>
+                    <input type="file" id="imageUpload" (change)="onFileSelected($event)">
+                </div>
+    
+                <button type="submit" mat-raised-button color="primary" (click)="onUpload()">Upload!</button>
+            </mat-card-content>
+            <mat-form-field class="full-width">
+            <label for="aboutMeText">About Me:  </label>
                     <input type="text" class="form-control" id="aboutMeText" placeholder="Write about yourself"
                         name="aboutMeText" [(ngModel)]="profile.text" #pText="ngModel">
-
-
-                </div>
-            </mat-card-content>
-            <mat-card-actions>
-                <button type="submit" mat-raised-button color="primary">Sumbit!</button>
-            </mat-card-actions>
-        </mat-card>
-    </form>
-</div>
-
-<div class="cardContainer" align="center">
-
-    <mat-card>
-        <mat-card-title>Edit Avatar!</mat-card-title>
-
-
-        <mat-card-content>
-            <div id="imgRow">
-                <div class="noMargin">
-                    <img [src]="profile.imageUrl" alt="Profile Image" width="250px" height="250px">
-                    <div class="mat-display-2 noMargin">Before</div>
-                </div>
-
-                <div class="noMargin" *ngIf="getShowOtherImage()">
-                    <img [src]="tempFileInfo.url" alt="Profile Image" width="250px" height="250px">
-                    <div class="mat-display-2 noMargin">After</div>
-                </div>
-            </div>
-                <div id="imageError" *ngIf="getIsFileTooLarge()">
-                    <span>File is too large! Max is 500KB</span>
-                </div>
-            <div>
-                <label for="imageUpload">Choose a file! </label>
-                <input type="file" id="imageUpload" (change)="onFileSelected($event)">
-            </div>
-
-
-        </mat-card-content>
-        <mat-card-actions>
-            <button type="submit" mat-raised-button color="primary" (click)="onUpload()">Upload!</button>
-        </mat-card-actions>
-    </mat-card>
-
-</div>
-
-<div class="cardContainer" align="center">
-
-    <mat-card>
-        <mat-card-title>Display Email?</mat-card-title>
-        <mat-card-content>
-            <div *ngIf="getDisplayEmail()" class="mat-display-3" id="yesblock">YES</div>
-            <div *ngIf="!getDisplayEmail()" class="mat-display-3" id="noblock">NO</div>
-        </mat-card-content>
-        <mat-card-actions>
-            <button type="submit" mat-raised-button color="primary" (click)="toggleShowEmail()">Change!</button>
-        </mat-card-actions>
-    </mat-card>
-
-</div>
-
-<div class="cardContainer" align="center">
-
-    <mat-card>
-        <mat-card-title>Show Birthday?</mat-card-title>
-        <mat-card-content>
-            <div *ngIf="getDisplayBirthday()" class="mat-display-3" id="yesblock">YES</div>
-            <div *ngIf="!getDisplayBirthday()" class="mat-display-3" id="noblock">NO</div>
-        </mat-card-content>
-        <mat-card-actions>
-            <button type="submit" mat-raised-button color="primary" (click)="toggleShowBirthday()">Change!</button>
-        </mat-card-actions>
-    </mat-card>
-
-</div>
-
-<div class="cardContainer" align="center">
-
-    <mat-card>
-        <mat-card-title>Change Birthday!</mat-card-title>
-        <mat-card-content>
-            <label for="birthday">Select a date!</label>
-            <input type="date" [(ngModel)]="profile.birthday" id="birthday" (change)="onBirthdayChanged()">
-        </mat-card-content>
-        <mat-card-actions>
-        </mat-card-actions>
-    </mat-card>
-
-</div>
-
-
-<div class="cardContainer" align="center">
-
-    <mat-card>
-        <mat-card-title>Happy with changes?</mat-card-title>
-        <mat-card-content>
-        </mat-card-content>
-        <mat-card-actions>
-            <button type="submit" mat-raised-button color="primary" (click)="goToProfile()">To profile</button>
-        </mat-card-actions>
-    </mat-card>
-
-</div>
-
-
-<!-- <div class="cardContainer" align="center">
-    <form #myForm="ngForm" (ngSubmit)="updateProfileImage()">
-        <mat-card>
-            <mat-card-title>Edit Profile!</mat-card-title>
-
-
+                    <button type="submit" class="mat-small" mat-raised-button color="primary" (click)="updateProfile()">Update</button>
+          <mat-form-field class="full-width"> 
+            <label>Show Birthday?</label>
             <mat-card-content>
-
-                <div class="form-group">
-                    <label for="">Image URL</label>
-                    <input type="file" class="form-control" id="image_url" placeholder="Enter Image URL"
-                        name="image_url"
-                        enctype="multipart/form-data"
-                        value="inputvalue">
-                      
-
-                </div>
+                <div *ngIf="getDisplayBirthday()" id="yesblock">YES</div>
+                <div *ngIf="!getDisplayBirthday()" id="noblock">NO</div>
+                <button type="submit" class="mat-small" mat-raised-button color="primary" (click)="toggleShowBirthday()">Change!</button>
             </mat-card-content>
-            <mat-card-actions>
-                <button type="submit" mat-raised-button color="primary">Sumbit!</button>
-            </mat-card-actions>
-        </mat-card>
-    </form>
-</div>  -->
-
-<!-- <h1>file upload</h1>
-<input type="file" (change)="onFileSelected($event)">
-<button type="button" (click)="onUpload()">UPLOAD</button> -->
+            <mat-card-content>
+                <label for="birthday">Set birthdate: </label>
+                <input type="date" [(ngModel)]="profile.birthday" id="birthday" (change)="onBirthdayChanged()">
+            </mat-card-content>
+            <label>Display Email?</label>
+        <mat-card-content>
+            <div *ngIf="getDisplayEmail()" id="yesblock">YES</div>
+            <div *ngIf="!getDisplayEmail()" id="noblock">NO</div>     
+            <button type="submit" class="mat-small" mat-raised-button color="primary" (click)="toggleShowEmail()">Change!</button>
+       </mat-card-content>
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="btn-block" type="submit">Update Profile</button>
+            </mat-form-field>
+        </mat-card-content>
+      </form>
+    </mat-card>
+  </div>
