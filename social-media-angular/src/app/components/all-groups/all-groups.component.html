@@ -45,7 +45,8 @@
                                                     Image URL:</label>
                                                 <input type="text" class="form-control" id="groupImageUrl"
                                                     placeholder="Provide a URL for the group image" name="groupImageUrl"
-                                                    [(ngModel)]="newGroup.groupImageUrl" #groupImageUrl="ngModel">
+                                                    [(ngModel)]="newGroup.groupImageUrl" #groupImageUrl="ngModel"
+                                                    required>
                                             </div>
 
                                         </div>
@@ -64,7 +65,7 @@
                     <div *ngFor="let eachGroup of groups" class="post-card">
                         <mat-card>
                             <mat-card-header>
-                                <img mat-card-avatar src="{{ eachGroup.groupImageUrl }}" alt="header-image">
+                                <img mat-card-avatar *ngIf="eachGroup.groupImageUrl" src="{{ eachGroup.groupImageUrl }}" alt="header-image">
                                 <mat-card-title>{{ eachGroup.groupName }}</mat-card-title>
                                 <mat-card-subtitle>
                                     <button type="button" class="btn btn-primary" (click)="viewGroup(eachGroup)">
