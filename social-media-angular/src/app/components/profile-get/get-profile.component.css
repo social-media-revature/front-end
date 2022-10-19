@@ -7,6 +7,29 @@
     justify-content: center;
 }
 
+#alignRowDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#alignColDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.marginLeftDiv{
+    margin-left: 3em;
+}
+
+.fivepxMarginLeftDiv{
+    margin-left: 1em;
+}
+
+.someMarginTop{
+    margin-top: 5px;
+}
+
 #halfWidth{
     width: 50%;
     text-align: center;
@@ -43,3 +66,13 @@
     margin-top: 10em;
 }
 
+.wrapAboutTextDiv{
+    height: 100%;
+    overflow-wrap: break-word;
+}
+
+.wrapAboutText{
+    height: 100%;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}

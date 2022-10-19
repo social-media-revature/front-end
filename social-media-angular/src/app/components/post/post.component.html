@@ -2,20 +2,23 @@
     <mat-card>
         <mat-card-header>
             <img mat-card-avatar class="header-image" (click)="goToProfile()" id="mouseCursor" [src]="profileImageUrl">
-            <mat-card-title>{{post.author.firstName}} {{post.author.lastName}}</mat-card-title>
-            <mat-card-subtitle>{{post.author.email}}</mat-card-subtitle>
+            <mat-card-title>{{post.author.firstName | obscenity }} {{post.author.lastName | obscenity }}</mat-card-title>
+
+            
+
+            <mat-card-subtitle>{{post.author.email  | obscenity }}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image *ngIf="post.imageUrl" src="{{ post.imageUrl }}" alt="Post Image">
+        
+        <img mat-card-image *ngIf="post.imageUrl" src="{{ post.imageUrl | obscenity }}" alt="Post Image">
         <mat-card-content>
             <p>
                 {{post.text | obscenity}}
-            </p>
-            <!-- <h1>{{isItBookmarked(post)}}</h1> -->
-            <mat-icon (click)="bookmarkThisPost(post)" *ngIf="!bookmarked">bookmark_border</mat-icon>
-           <mat-icon (click)="unBookmarkThisPost(post)" *ngIf="bookmarked">bookmark</mat-icon>
-           <mat-icon (click)="likeThisPost(post)" *ngIf="!liked">favorite_border</mat-icon>
-           <mat-icon (click)="unLikeThisPost(post)" *ngIf="liked">favorite</mat-icon>
-           <h1>{{likes}}</h1>
+            </p>         
+          <mat-icon (click)="likeThisPost(post)" *ngIf="!liked">favorite_border</mat-icon>
+           <mat-icon (click)="unLikeThisPost(post)" *ngIf="liked" style="color: red;">favorite</mat-icon>
+           <mat-icon (click)="bookmarkThisPost(post)" *ngIf="!bookmarked">bookmark_border</mat-icon>
+                <mat-icon (click)="unBookmarkThisPost(post)" *ngIf="bookmarked" style="color: #673AB7;">bookmark</mat-icon>
+           <h6>{{likes}} like this post</h6>
             <div *ngFor="let comment of post.comments" class="comment-container">
                 <mat-divider></mat-divider>
                 <app-comment [comment]="comment"></app-comment>
