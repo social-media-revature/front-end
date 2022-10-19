@@ -48,7 +48,7 @@ export class AllGroupsComponent implements OnInit {
 
   toggleGroupForm(): void{
     console.log(this.currentUser);
-    if(this.currentUser == null){
+    if(!this.currentUser){
       this.router.navigate(['login']);
     }else{
       this.showCreateGroupForm = !this.showCreateGroupForm;
