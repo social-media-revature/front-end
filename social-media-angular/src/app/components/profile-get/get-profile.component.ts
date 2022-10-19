@@ -71,8 +71,8 @@ export class GetProfileComponent implements OnInit {
     this.profileService.getOneProfile(user).subscribe((Response) => {
       console.log(Response)
       if (Response.id == -1) { //this means there isn't a profile! Will make one or find out if its other user
-        if(this.authService.isLoggedIn && this.authService.currentUser.id == userId) //means the person accessing the profile is themself so it will be made!
-        this.createProfile();
+        if(this.authService.isLoggedIn && this.authService.currentUser.id == userId){ //means the person accessing the profile is themself so it will be made!
+        this.profile.imageUrl = "./assets/images/favicon.png";    this.createProfile();}
         else  //it is a different person, so we are showing a different screen, since people can't make profiles for others
         this.canShowProfile = false;
       }
