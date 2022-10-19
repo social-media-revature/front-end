@@ -9,7 +9,7 @@
         <button *ngIf="!currentUser" type="button" (click)="go2login()"> Join Group </button>
         <button *ngIf="isAdmin()" type="button" (click)="editGroup()"> Edit Group </button>
         <button *ngIf="!memberStatus" type="button" (click)="addMember()"> Join Group </button>
-        <!-- <button *ngIf="memberStatus && !isAdmin()" type="button" (click)="deleteMember()"> Leave Group </button> -->
+        <button *ngIf="memberStatus && !isAdmin()" type="button" (click)="deleteMember()"> Leave Group </button>
     </div>
 </header>
 

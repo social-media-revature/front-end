@@ -1,14 +1,13 @@
 <p>
     <mat-toolbar>
-        <span><img src="https://s.imgur.com/B13NqRU.jpg"></span>
-        <!-- <span [routerLink]="['/post-feed']">HeapOverflow</span> -->
-        <button mat-button (click)="go2groups()">Groups</button>
+        <span id="mouseCursor" (click)="homepage();"><img src="https://s.imgur.com/B13NqRU.jpg"></span>        
         <span class="spacer"></span>
-        <button (click)="goToProfile();" mat-raised-button color="dark" *ngIf="isLoggedIn()"><span class="material-symbols-outlined">contact_page</span></button>
-        <button (click)="logout();" mat-raised-button color="logout"><span>Logout</span></button>
+        <button mat-raised-button (click)="go2groups()" *ngIf="isLoggedIn()" color="dark">Groups <span class="material-symbols-outlined">groups</span></button>
+        <button [routerLink]="['/bookmark']" mat-raised-button color="dark" *ngIf="isLoggedIn()">My <span class="material-symbols-outlined">bookmark</span></button>
+        <button [routerLink]="['/like']" mat-raised-button color="dark" *ngIf="isLoggedIn()">My <span class="material-symbols-outlined">favorite</span></button>
+        <button (click)="goToProfile();" mat-raised-button color="dark" *ngIf="isLoggedIn()">Profile <span class="material-symbols-outlined">contact_page</span></button>
         <button (click)="darkMode();" mat-raised-button color="dark"><span class="material-symbols-outlined">brightness_4</span></button>
-        <button *ngIf="JSONuser" (click)="logout();" mat-raised-button color="logout"><span>Logout</span></button>
-        <button *ngIf="!JSONuser" (click)="go2login()" mat-raised-button color="logout"><span>Log in</span></button>
-        <button (click)="darkMode();" mat-raised-button color="dark"><span class="material-symbols-outlined">brightness_4</span></button>
+        <button (click)="logout();" *ngIf="isLoggedIn()" mat-raised-button color="logout"><span class="material-symbols-outlined">Logout</span></button>
+         
     </mat-toolbar>
 </p>
