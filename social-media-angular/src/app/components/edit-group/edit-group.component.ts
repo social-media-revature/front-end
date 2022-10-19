@@ -31,6 +31,7 @@ export class EditGroupComponent implements OnInit {
   editGroup(): void{
     this.JSONedit=JSON.stringify(this.groupEdit);
     sessionStorage.setItem("clickedGroup",this.JSONedit)
+    console.log(sessionStorage.getItem("clickedGroup"))
     this.groupService.editGroup(this.groupEdit);
     this.router.navigate(['app-group']);
   }
