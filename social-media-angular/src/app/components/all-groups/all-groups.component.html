@@ -1,20 +1,15 @@
-    <header>Browse Groups!</header>
-
-    <body id="body1">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-2">
-                    <button type="button" class="btn btn-success" (click)="toggleGroupForm()">Create New Group</button>
+        <div style="margin-left:10%; margin-right:10%; padding-top: 20px; padding-bottom: 20px;">
+            
+                
+                    <button mat-raised-button color="logout" (click)="toggleGroupForm()">Create New Group</button>
                     <div *ngIf="showCreateGroupForm">
-                        <div class="row">
-                            <div class="col-4"></div>
-                            <div class="col-4">
+                        
+
                                 <form  #myForm="ngForm" (ngSubmit)="createGroup()">
                                     <div class="card mt-3">
                                         <div class="card-body">
                                             <div class="mb-3 mt-3">
-                                                <label for="bTitle" class="form-label">Group Name:</label>
+                                                <label for="Title" class="form-label">Group Name:</label>
                                                 <input type="text" class="form-control" id="groupName"
                                                     placeholder="Enter group name" name="groupName"
                                                     [(ngModel)]="newGroup.groupName" #groupName="ngModel" required>
@@ -49,39 +44,34 @@
                                             </div>
 
                                         </div>
-                                        <div class="card-footer bg-success">
-                                            <button type="submit" class="btn btn-warning"
+                                        <div class="card-footer">
+                                            <button type="submit" mat-raised-button color="logout"
                                                 [disabled]="!myForm.valid">Create Group</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-4"></div>
+                            
                         </div>
 
-                    </div><br><br>
+                
 
-                    <div *ngFor="let eachGroup of groups" class="post-card">
+                    <div *ngFor="let eachGroup of groups" style="margin-left:10%; margin-right:10%" id="post-feed">
                         <mat-card>
                             <mat-card-header>
                                 <img mat-card-avatar *ngIf="eachGroup.groupImageUrl" src="{{ eachGroup.groupImageUrl }}" alt="header-image">
                                 <mat-card-title>{{ eachGroup.groupName }}</mat-card-title>
                                 <mat-card-subtitle>
-                                    <button type="button" class="btn btn-primary" (click)="viewGroup(eachGroup)">
-                                        <span class="material-symbols-outlined">View Group</span>
+                                    <button mat-raised-button color="logout" (click)="viewGroup(eachGroup)">
+                                        <span>View Group</span>
                                     </button>
                                 </mat-card-subtitle>
                                 <mat-card-content>{{ eachGroup.groupDescription }}</mat-card-content>
                             </mat-card-header>
                         </mat-card>
+                        <br>
                     </div>
 
 
-                </div>
-                <div class="col-2"></div>
-            </div>
-
-        </div>
-
-    </body>
-
+            
+                
