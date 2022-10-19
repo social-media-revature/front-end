@@ -15,8 +15,8 @@ export class EditGroupComponent implements OnInit {
   JSONgroup: string;
   group: Group;
 
-  JSONedit: string;
-  groupEdit: Group;
+  // JSONedit: string;
+  // groupEdit: Group;
   
 
   constructor(private router: Router,
@@ -29,15 +29,12 @@ export class EditGroupComponent implements OnInit {
   }
 
   editGroup(): void{
-    this.JSONedit=JSON.stringify(this.groupEdit);
-    sessionStorage.setItem("clickedGroup",this.JSONedit)
+    this.JSONgroup=JSON.stringify(this.group);
+    sessionStorage.setItem("clickedGroup",this.JSONgroup)
     console.log(sessionStorage.getItem("clickedGroup"))
-    this.groupService.editGroup(this.groupEdit);
+    this.groupService.editGroup(this.group);
     this.router.navigate(['app-group']);
   }
-
-
-
 
 
 }

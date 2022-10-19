@@ -43,12 +43,10 @@ export class GroupComponent implements OnInit {
     this.JSONgroup = sessionStorage.getItem("clickedGroup");
     this.group = JSON.parse(this.JSONgroup);
 
-    if(!this.JSONuser){
       this.JSONuser = sessionStorage.getItem("currentUser");
       this.currentUser = JSON.parse(this.JSONuser);
       this.memberStatus = this.isMember();
       this.loadPosts();
-    }
   }
 
   loadGroup(): void{
