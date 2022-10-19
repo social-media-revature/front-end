@@ -12,23 +12,25 @@
         <mat-grid-tile colspan="6" rowspan="2">
             <mat-card id="stopCenterDiv">
                 <mat-card-content>
-                    <div layout="col" layout-align="center center">
+                    <div layout="row" layout-align="center center" id="alignRowDiv">
                         <img [src]="profile.imageUrl" alt="Image Here!" width="160em" height="160em">
-                        
+                        <div class="alignColDiv fivepxMarginLeftDiv">
+                        <div>About {{profile.user.firstName | obscenity}}:</div>
+                        <div class="wrapAboutText"><p>{{profile.text | obscenity}}</p></div>
+                        </div>
                     </div>
-                    <button mat-raised-button color="primary" class="editBtn mat-small" (click)="goToEditProfile()">Edit
+                    <button mat-raised-button color="primary" class="editBtn mat-small" *ngIf="isCurrentUser()" (click)="goToEditProfile()">Edit
                         Profile!</button>
-                    <div layout="row" layout-align="center center" id="stopCenterDiv">
+                    <div layout="row" layout-align="center center" id="alignRowDiv" class="someMarginTop">
                         <div>Name: {{profile.user.firstName | obscenity}} {{profile.user.lastName | obscenity}}
                         </div>
-                        <br>
-                        <div *ngIf="getCanShowEmail()">Email: {{profile.user.email | obscenity}}</div>
-                        <br>
-                        <div *ngIf="getCanShowBirthday()">Birthday: 
+                        
+                        <div class="marginLeftDiv" *ngIf="getCanShowEmail()">Email: {{profile.user.email | obscenity}}</div>
+                        
+                        <div class="marginLeftDiv" *ngIf="getCanShowBirthday()">Birthday: 
                             {{profile.birthday}}</div>
                         <br>
-                        <div>About {{profile.user.firstName | obscenity}}:</div>
-                        <div><p>{{profile.text | obscenity}}</p></div>
+                        
                     </div>
                 </mat-card-content>
             </mat-card>
