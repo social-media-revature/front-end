@@ -131,6 +131,7 @@ public getDisplayEmail() : boolean{
   }
 
   public onUpload() : void{
+    if(!this.file) return;
     this.fileStorageService.uploadFile(this.file).subscribe((Response)=>{
       this.profile.imageUrl = this.baseurl +"/files/" + Response.url;
       this.profileService.updateProfile(this.profile).subscribe((Response)=>{
