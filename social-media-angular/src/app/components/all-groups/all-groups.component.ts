@@ -18,7 +18,7 @@ export class AllGroupsComponent implements OnInit {
   groups: Group[] = [];
 
   currentUserJSON: any;
-  currentUser: User;
+  currentUser: any;
   newGroup: Group;
 
   constructor(private groupService: GroupService,
