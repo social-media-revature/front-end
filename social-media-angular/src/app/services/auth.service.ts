@@ -10,7 +10,7 @@ import User from '../models/User';
 export class AuthService {
 
   authUrl: string = `${environment.baseUrl}/auth`;
-  currentUser: User
+  currentUser: any;
   isLoggedIn: boolean = false;
   constructor(private http: HttpClient) { }
 
