@@ -42,11 +42,12 @@ export class GroupComponent implements OnInit {
   ngOnInit(): void {
     this.JSONgroup = sessionStorage.getItem("clickedGroup");
     this.group = JSON.parse(this.JSONgroup);
-
-      this.JSONuser = sessionStorage.getItem("currentUser");
-      this.currentUser = JSON.parse(this.JSONuser);
+    this.JSONuser = sessionStorage.getItem("currentUser");
+    this.currentUser = JSON.parse(this.JSONuser);
+    if(this.authService.currentUser){
       this.memberStatus = this.isMember();
-      this.loadPosts();
+    }
+    this.loadPosts();
   }
 
   loadGroup(): void{
@@ -110,7 +111,11 @@ export class GroupComponent implements OnInit {
   }
 
   isAdmin(): boolean{
-    return this.currentUser.id == this.group.adminID;
+    if(!this.currentUser){
+      return false;
+    }else{
+      return this.currentUser.id == this.group.adminID;
+    }
   }
 
   isMember(): boolean{
