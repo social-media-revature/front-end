@@ -10,7 +10,7 @@
                 
                 <div class="full-width">
                     <mat-form-field appearance="outline">
-                    <mat-label for="aboutMeText">About Me: </mat-label>
+                    <mat-label for="aboutMeText" class="profile-edit-text">About Me: </mat-label>
                     <input matInput type="text" class="form-control" id="aboutMeText" placeholder="Write about yourself"
                         name="aboutMeText" [(ngModel)]="profile.text" name="aboutMeText" #pText="ngModel">
                     <mat-hint>Don't be shy!</mat-hint>
@@ -19,7 +19,7 @@
                         (click)="updateProfile()">Update</button>
                     </div>
                     <div class="full-width">
-                        <label>Show Birthday?</label>
+                        <label class="profile-edit-text">Show Birthday?</label>
                         <mat-card-content>
                             <div *ngIf="getDisplayBirthday()" id="yesblock">YES</div>
                             <div *ngIf="!getDisplayBirthday()" id="noblock">NO</div>
@@ -27,11 +27,11 @@
                                 (click)="toggleShowBirthday()">Change!</button>
                         </mat-card-content>
                         <mat-card-content>
-                            <label for="birthday">Set birthdate: </label>
+                            <label for="birthday"class="profile-edit-text">Set birthdate: </label>
                             <input type="date" [(ngModel)]="profile.birthday" name="birthday" id="birthday"
                                 (change)="onBirthdayChanged()">
                         </mat-card-content>
-                        <label>Display Email?</label>
+                        <label class="profile-edit-text">Display Email?</label>
                         <mat-card-content>
                             <div *ngIf="getDisplayEmail()" id="yesblock">YES</div>
                             <div *ngIf="!getDisplayEmail()" id="noblock">NO</div>
