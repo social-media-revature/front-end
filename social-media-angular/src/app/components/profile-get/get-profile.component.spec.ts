@@ -4,8 +4,6 @@ import { Profile } from 'src/app/models/Profile';
 import { ProfileService } from 'src/app/services/profile.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpHandler } from '@angular/common/http';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 
 import { GetProfileComponent } from './get-profile.component';
 import { AuthService } from 'src/app/services/auth.service';
@@ -27,7 +25,7 @@ describe('GetProfileComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ GetProfileComponent ],
       imports: [HttpClientTestingModule, RouterTestingModule],
-      providers: [AuthService,ProfileService,HttpClient, HttpHandler  {
+      providers: [AuthService,ProfileService,HttpClient, HttpHandler,  {
         provide: ActivatedRoute,
         useValue: {
             snapshot: {
@@ -47,7 +45,7 @@ describe('GetProfileComponent', () => {
     httpMock = TestBed.inject(HttpTestingController);
     authService = TestBed.inject(AuthService);
     service = TestBed.inject(ProfileService);
-    router = TestBed.inject(Router);
+    router = TestBed.inject(Router);  authService.isLoggedIn=true;
     authService.currentUser = {
       id : 1,
       email: "",
@@ -90,7 +88,6 @@ describe('GetProfileComponent', () => {
 
 
     component = fixture.componentInstance;
-    // fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -111,10 +108,9 @@ describe('GetProfileComponent', () => {
   })
 
   it('should call createprofile if user doesnt have a profile but tries to load one',()=>{
-    spyOn(service, 'getOneProfile').and.returnValue(of(otherProfile));
     otherProfile.id = -1;
     const check = spyOn(component,"createProfile");
-    console.log("TESTING CALLING INITIALIZE")
+    spyOn(service, 'getOneProfile').and.returnValue(of(otherProfile));
     component.initializeProfile();
     
     expect(check).toHaveBeenCalledTimes(1);

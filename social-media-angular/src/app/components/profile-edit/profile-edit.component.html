@@ -8,13 +8,17 @@
 
 
                 
-                <mat-form-field class="full-width">
-                    <label for="aboutMeText">About Me: </label>
-                    <input type="text" class="form-control" id="aboutMeText" placeholder="Write about yourself"
-                        name="aboutMeText" [(ngModel)]="profile.text" #pText="ngModel">
+                <div class="full-width">
+                    <mat-form-field appearance="outline">
+                    <mat-label for="aboutMeText">About Me: </mat-label>
+                    <input matInput type="text" class="form-control" id="aboutMeText" placeholder="Write about yourself"
+                        name="aboutMeText" [(ngModel)]="profile.text" name="aboutMeText" #pText="ngModel">
+                    <mat-hint>Don't be shy!</mat-hint>
+                    </mat-form-field><div>
                     <button type="submit" class="mat-small" mat-raised-button color="primary"
                         (click)="updateProfile()">Update</button>
-                    <mat-form-field class="full-width">
+                    </div>
+                    <div class="full-width">
                         <label>Show Birthday?</label>
                         <mat-card-content>
                             <div *ngIf="getDisplayBirthday()" id="yesblock">YES</div>
@@ -24,7 +28,7 @@
                         </mat-card-content>
                         <mat-card-content>
                             <label for="birthday">Set birthdate: </label>
-                            <input type="date" [(ngModel)]="profile.birthday" id="birthday"
+                            <input type="date" [(ngModel)]="profile.birthday" name="birthday" id="birthday"
                                 (change)="onBirthdayChanged()">
                         </mat-card-content>
                         <label>Display Email?</label>
@@ -34,9 +38,9 @@
                             <button type="submit" class="mat-small" mat-raised-button color="primary"
                                 (click)="toggleShowEmail()">Change!</button>
                         </mat-card-content>
-                    </mat-form-field>
+                    </div>
                     <button mat-raised-button color="primary" class="btn-block" type="submit" (click)="goToProfile()">Return to Profile</button>
-                </mat-form-field>
+                </div>
             </mat-card-content>
         </form>
     </mat-card>
