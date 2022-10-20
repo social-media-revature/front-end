@@ -89,10 +89,15 @@ export class GroupComponent implements OnInit {
   }
 
   addMember(): void {
-    this.groupService.addMember(this.currentUser, this.group.groupID).subscribe((response) => {
+    if(!this.currentUser){
+      this.router.navigate(['login']);
+    }else{
+      this.groupService.addMember(this.currentUser, this.group.groupID).subscribe((response) => {
       this.group.groupMembers = [...this.group.groupMembers, response];
     })
     this.toggleJoin();
+    }
+   
   }
 
   go2login(): void{
