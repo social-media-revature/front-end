@@ -89,6 +89,9 @@ export class NavbarComponent implements OnInit{
 
 
   goToProfile() : void{
-    this.router.navigate([`get-profile/${this.authService.currentUser.id}`]);
-  }
+    
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([`get-profile/${this.authService.currentUser.id}`]);
+  }); 
+}
 }
