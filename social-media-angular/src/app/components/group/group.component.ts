@@ -42,11 +42,12 @@ export class GroupComponent implements OnInit {
   ngOnInit(): void {
     this.JSONgroup = sessionStorage.getItem("clickedGroup");
     this.group = JSON.parse(this.JSONgroup);
-
-      this.JSONuser = sessionStorage.getItem("currentUser");
-      this.currentUser = JSON.parse(this.JSONuser);
+    this.JSONuser = sessionStorage.getItem("currentUser");
+    this.currentUser = JSON.parse(this.JSONuser);
+    if(this.authService.currentUser){
       this.memberStatus = this.isMember();
-      this.loadPosts();
+    }
+    this.loadPosts();
   }
 
   loadGroup(): void{
@@ -80,7 +81,7 @@ export class GroupComponent implements OnInit {
   submitPost = (e: any) => {
     e.preventDefault();
     this.groupService.upsertPost(new GroupPost(0, this.group.groupID, this.postForm.value.text ||
-                "", this.postForm.value.imageUrl || "", this.authService.currentUser, [])).subscribe(
+                "", this.postForm.value.imageUrl || "", this.currentUser, [])).subscribe(
         (response) => {
           this.posts = [response, ...this.posts]
           this.toggleCreatePost()
@@ -89,10 +90,15 @@ export class GroupComponent implements OnInit {
   }
 
   addMember(): void {
-    this.groupService.addMember(this.currentUser, this.group.groupID).subscribe((response) => {
+    if(!this.currentUser){
+      this.router.navigate(['login']);
+    }else{
+      this.groupService.addMember(this.currentUser, this.group.groupID).subscribe((response) => {
       this.group.groupMembers = [...this.group.groupMembers, response];
     })
     this.toggleJoin();
+    }
+   
   }
 
   go2login(): void{
@@ -105,7 +111,11 @@ export class GroupComponent implements OnInit {
   }
 
   isAdmin(): boolean{
-    return this.currentUser.id === this.group.adminID;
+    if(!this.currentUser){
+      return false;
+    }else{
+      return this.currentUser.id == this.group.adminID;
+    }
   }
 
   isMember(): boolean{
