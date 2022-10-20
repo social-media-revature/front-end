@@ -25,7 +25,6 @@ export class CommentComponent implements OnInit {
   }
 
   toggleReplyToComment = () => {
-    console.log("hello");
     this.replyToComment = !this.replyToComment
   }
 
