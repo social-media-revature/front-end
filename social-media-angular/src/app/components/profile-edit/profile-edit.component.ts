@@ -151,6 +151,7 @@ public getDisplayEmail() : boolean{
     this.profile.displayEmail = !this.profile.displayEmail;
     this.profileService.updateProfile(this.profile).subscribe((Response)=>{
       this.profile = Response;
+      this.router.navigate([`get-profile/${this.profile.user.id}`]);
     });
   }
 
@@ -158,6 +159,7 @@ public getDisplayEmail() : boolean{
     this.profile.displayBirthday = !this.profile.displayBirthday;
     this.profileService.updateProfile(this.profile).subscribe((Response)=>{
       this.profile = Response;
+      this.router.navigate([`get-profile/${this.profile.user.id}`]);
     });
   }
 
