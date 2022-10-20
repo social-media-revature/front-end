@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value.email || "", this.loginForm.value.password || "")
       .subscribe(
         (response) => {
+          sessionStorage.setItem("currentUser",JSON.stringify(response));
+          this.authService.isLoggedIn = true;
           this.authService.currentUser = response
           this.router.navigate(['post-feed'])
         }

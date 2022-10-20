@@ -16,13 +16,14 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
     const payload = {email:email, password:password};
-    const res = this.http.post<any>(`${this.authUrl}/login`, payload, {headers: environment.headers, withCredentials: environment.withCredentials});
-    res.subscribe((data) => {
+    return this.http.post<any>(`${this.authUrl}/login`, payload, {headers: environment.headers, withCredentials: environment.withCredentials});
+    /*res.subscribe((data) => {
       this.currentUser = data
       this.isLoggedIn = true;
       sessionStorage.setItem("currentUser",JSON.stringify(data));
+      
     })
-    return res;
+    return res;*/
   }
 
   logout(): void{
