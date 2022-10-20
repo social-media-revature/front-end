@@ -93,7 +93,7 @@ public getDisplayEmail() : boolean{
   public updateProfile(): void{
     this.profileService.updateProfile(this.profile).subscribe((Response)=>{
       this.profile = Response;
-     // this.router.navigate([`get-profile/${this.profile.user.id}`]);
+      this.router.navigate([`get-profile/${this.profile.user.id}`]);
     })
   }
 
