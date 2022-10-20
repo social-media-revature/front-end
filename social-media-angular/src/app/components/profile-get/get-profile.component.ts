@@ -50,6 +50,7 @@ export class GetProfileComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    console.log("init being called!");
     this.initializeProfile();
 
   }
