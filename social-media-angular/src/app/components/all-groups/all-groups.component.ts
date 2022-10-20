@@ -72,7 +72,4 @@ viewGroup(clickedGroup: Group): void{
     this.router.navigate(['app-group']);
 }
 
-
-
-
 }
